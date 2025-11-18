@@ -1,6 +1,6 @@
 <section class="benefits-section" style="{{ $this->getBackgroundStyle() }}">
     <div class="container mx-auto px-4 py-6">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-2 items-center">
 
             <!-- Columna 1: Título principal -->
             <div class="text-left">
@@ -14,57 +14,23 @@
 
             <!-- Columna 2: Garantía Extendida -->
             <div class="text-center">
-                <h3 class="text-white text-sm font-medium mb-4 uppercase tracking-wider">
-                    GARANTÍA EXTENDIDA
-                </h3>
-
-                <div class="flex items-center justify-center gap-4">
-                    <!-- Card 5 años -->
-                    <div class="benefit-card-custom {{--bg-white/20 backdrop-blur-sm rounded-2xl flex flex-col items-center justify-center text-center--}}">
-                        <div class="benefit-number">5</div>
-                        <div class="benefit-unit text-white/90 font-medium">AÑOS</div>
-                    </div>
-
-                    <!-- Conector "ó" -->
-                    <div class="text-white connector-text">ó</div>
-
-                    <!-- Card 150.000 KM -->
-                    <div class="benefit-card-custom {{--bg-white/20 backdrop-blur-sm rounded-2xl flex flex-col items-center justify-center text-center--}}">
-                        <div class="benefit-unit">150.000</div>
-                        <div class="benefit-number text-white/90 font-medium">KM</div>
-                    </div>
-                </div>
+                <img src="assets/images/Grupo 1.png" alt="" class="w-64">
             </div>
 
             <!-- Columna 3: Mantenimientos -->
             <div class="text-center">
-                <h3 class="text-white text-sm font-medium mb-4 uppercase tracking-wider">
-                    Y MANTENIMIENTOS INCLUIDOS
-                </h3>
+                <img src="assets/images/Grupo 2.png" alt="" class="w-64 mt-[-41px]">
+            </div>
 
-                <div class="flex items-center justify-center gap-4">
-                    <!-- Card 6 servicios -->
-                    <div class="benefit-card-custom {{--bg-white/20 backdrop-blur-sm rounded-2xl flex flex-col items-center justify-center text-center--}}">
-                        <div class="benefit-number">6</div>
-                        <div class="text-sm benefit-unit text-white/90 font-medium" style="font-size: 20px">SERVICIOS</div>
-                    </div>
-
-                    <!-- Conector "EN" -->
-                    <div class="text-white connector-text" >EN</div>
-
-                    <!-- Card 3 años -->
-                    <div class="benefit-card-custom {{--bg-white/20 backdrop-blur-sm rounded-2xl flex flex-col items-center justify-center text-center--}}">
-                        <div class="benefit-number">3</div>
-                        <div class="benefit-unit text-white/90 font-medium">AÑOS</div>
-                    </div>
-                </div>
+            <div class="text-center">
+                <img src="assets/images/Grupo 3.png" alt="" class="w-64 mt-[-21px]">
             </div>
         </div>
 
         <!-- Footer text -->
-        <div class="text-center mt-8">
-            <p class="text-white/70 text-sm">{{ $footerText }}</p>
-        </div>
+{{--        <div class="text-center mt-8">--}}
+{{--            <p class="text-white/70 text-sm">{{ $footerText }}</p>--}}
+{{--        </div>--}}
     </div>
 
     <style>

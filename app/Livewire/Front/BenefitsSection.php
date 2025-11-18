@@ -11,12 +11,12 @@ class BenefitsSection extends Component
 
 
 // Configuración de fondo
-    public $backgroundType = 'image'; // 'gradient' o 'image'
+    public $backgroundType = 'gradient'; // 'gradient' o 'image'
 
     public $backgroundImage = 'assets/images/bg-benefits.png'; // Tu imagen de fondo
     public $backgroundOverlay = true; // Mantener overlay para legibilidad del texto
-    public $backgroundColor = '#3b82f6';
-    public $gradientEndColor = '#3B4C39';
+    public $backgroundColor = '#41543e';
+    public $gradientEndColor = '#41543e';
     public $gradientDirection = '0';
     public $overlayOpacity = 0; // Opacidad del overlay (0-1)
 

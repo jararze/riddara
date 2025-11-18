@@ -12,7 +12,7 @@ class DireccionesSection extends Component
     private $defaultSectionData = [
         'title' => 'DIRECCIONES',
         'subtitle' => 'Encuentra la sucursal Geely más cercana:',
-        'map_image' => 'frontend/images/mapa Bolivia.jpg',
+        'map_image' => 'frontend/images/mapa Bolivia.png',
         'background_color' => '#ffffff',
         'text_color' => '#333333',
         'button_text' => 'Agenda ahora',
