@@ -1,0 +1,551 @@
+/* public/css/carousel-3d.css */
+* {
+    box-sizing: border-box;
+}
+
+/* Carousel 3D Section - adaptado a tu diseño */
+.carousel-3d-section {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    background: transparent;
+    overflow: visible; /* Cambiar para que se vea completo */
+    margin-bottom: 2rem;
+    padding: 0 60px;
+}
+
+/* 3D Carousel */
+.carousel-3d {
+    position: absolute;
+    left: 50%;
+    top: 60%; /* Centrar mejor verticalmente */
+    transform-style: preserve-3d;
+    perspective: 1200px; /* Aumentar perspectiva */
+    width: 0;
+    height: 0;
+}
+
+.carousel-holder {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.carousel-item {
+    position: absolute;
+    width: 350px; /* Ajustar tamaño */
+    height: 220px;
+    cursor: pointer;
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform-style: preserve-3d;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+/* Vehículo central más grande */
+.carousel-item.center {
+    z-index: 100;
+    width: 450px; /* Más grande que los laterales */
+    height: 280px;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 70%; /* Solo ocupar parte superior */
+    object-fit: contain; /* Para que se vea completo el vehículo */
+    background: #f8f9fa;
+    padding: 20px;
+}
+
+/* Información del vehículo debajo de la imagen */
+.vehicle-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30%;
+    background: white;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.vehicle-info h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1a1a1a;
+    margin: 0 0 8px 0;
+    font-family: 'geely-title', Arial, sans-serif;
+}
+
+.vehicle-info p {
+    font-size: 12px;
+    color: #666;
+    margin: 0 0 12px 0;
+    line-height: 1.3;
+}
+
+/* Pricing en cada card */
+.vehicle-pricing-small {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.price-before-small {
+    font-size: 11px;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.price-now-small {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.price-now-small .label {
+    color: #3b82f6;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.price-now-small .amount {
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Quitar el overlay de texto original */
+.carousel-text {
+    display: none;
+}
+
+/* Controls - mover más abajo */
+.carousel-controls {
+    position: absolute;
+    bottom: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 1000;
+}
+
+.control-btn {
+    background: rgba(255,255,255,0.9);
+    border: 2px solid rgba(128,128,128,0.3);
+    color: #333;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.control-btn:hover {
+    background: rgba(255,255,255,1);
+    border-color: #9333ea;
+    color: #9333ea;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(147, 51, 234, 0.2);
+}
+
+/* Información del vehículo central debajo del carousel */
+.center-vehicle-info {
+    margin-top: 60px;
+    text-align: center;
+    padding: 40px 0;
+}
+
+.center-vehicle-info h3 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #1a1a1a;
+    margin-bottom: 16px;
+    font-family: 'geely-title', Arial, sans-serif;
+}
+
+.center-vehicle-info p {
+    font-size: 1.125rem;
+    color: #666;
+    margin-bottom: 32px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Configuration Panel - mantener igual */
+.config-panel {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    z-index: 2000;
+    max-width: 300px;
+    transform: translateX(320px);
+    transition: transform 0.3s ease;
+}
+
+.config-panel.open {
+    transform: translateX(0);
+}
+
+.config-toggle {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    background: #009aff;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2001;
+    box-shadow: 0 5px 15px rgba(0,154,255,0.4);
+    transition: all 0.3s ease;
+    font-size: 16px;
+    opacity: 0.7;
+}
+
+.config-toggle:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.config-item {
+    margin-bottom: 15px;
+}
+
+.config-item label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #666;
+    font-weight: bold;
+}
+
+.config-slider {
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;
+    background: #ddd;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.config-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #009aff;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,154,255,0.4);
+}
+
+.config-select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: white;
+}
+
+.config-checkbox {
+    transform: scale(1.2);
+    margin-right: 8px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .carousel-3d-section {
+        height: 500px;
+    }
+
+    .carousel-item {
+        width: 280px;
+        height: 180px;
+    }
+
+    .carousel-item.center {
+        width: 350px;
+        height: 220px;
+    }
+
+    .config-toggle {
+        display: none;
+    }
+
+    .config-panel {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-3d-section {
+        height: 400px;
+    }
+
+    .carousel-item {
+        width: 250px;
+        height: 160px;
+    }
+
+    .carousel-item.center {
+        width: 300px;
+        height: 190px;
+    }
+}
+/* resources/css/vehicle-pricing.css */
+/* resources/css/vehicle-pricing.css */
+.vehicle-pricing-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.5rem 0;
+}
+
+.price-before-external {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.vehicle-pricing-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+}
+
+.price-section {
+    background: white;
+    border: 2px solid #999797;
+    border-radius: 50px 0 0 50px;
+    padding: 8px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
+    position: relative;
+    z-index: 1;
+}
+
+.price-now {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.price-now-label {
+    color: #3b82f6;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/*.price-now-amount {*/
+/*    color: #000000;*/
+/*    font-size: 1.25rem;*/
+/*    font-weight: 700;*/
+/*}*/
+
+.view-model-btn {
+    background: #000000;
+    color: white;
+    border: none;
+    border-radius: 0 50px 50px 0;
+    padding: 13px 32px;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    min-width: 140px;
+    margin-left: -2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.view-model-btn:hover {
+    background: #1f2937;
+}
+
+/* Para móvil */
+@media (max-width: 768px) {
+    .vehicle-pricing-container {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .price-section {
+        border-radius: 25px;
+        min-width: 180px;
+    }
+
+    .view-model-btn {
+        border-radius: 25px;
+        margin-left: 0;
+        min-width: 180px;
+    }
+}
+
+
+/* Estilos para el carousel de vehículos */
+.vehicles-carousel-container {
+    overflow: visible !important;
+    padding: 2rem 4rem;
+}
+
+/* Asegurar que las tarjetas laterales no se corten */
+.vehicle-card-side {
+    transform: scale(0.75);
+    opacity: 0.7;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.vehicle-card-center {
+    transform: scale(1);
+    z-index: 10;
+    position: relative;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .vehicles-carousel-container {
+        padding: 2rem 2rem;
+    }
+
+    .vehicle-card-side {
+        transform: scale(0.7);
+    }
+}
+
+@media (max-width: 768px) {
+    .vehicles-carousel-container {
+        padding: 1rem;
+    }
+
+    /* En móvil, ocultar tarjetas laterales */
+    .vehicle-card-side {
+        display: none;
+    }
+}
+
+/* Estilos específicos para vehículos laterales */
+.scale-90 .vehicle-pricing-container {
+    gap: 0;
+}
+
+.scale-90 .price-section {
+    padding: 6px 20px;
+}
+
+.scale-90 .view-model-btn {
+    padding: 10px 24px;
+    font-size: 0.875rem;
+}
+
+.scale-90 .price-before-external {
+    font-size: 0.75rem;
+    margin-bottom: 6px;
+}
+
+/* Responsive adjustments para laterales */
+@media (max-width: 768px) {
+    .scale-90 .vehicle-pricing-container {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .scale-90 .price-section {
+        border-radius: 20px;
+        min-width: 140px;
+    }
+
+    .scale-90 .view-model-btn {
+        border-radius: 20px;
+        margin-left: 0;
+        min-width: 140px;
+        padding: 8px 20px;
+    }
+}
+/* public/css/rotating-carousel.css */
+.carousel-3d-wrapper {
+    position: relative !important;
+    overflow: visible !important;
+}
+
+.rotating-holder {
+    position: relative !important;
+    transform-style: preserve-3d !important;
+}
+
+/* Mejorar la apariencia de los vehículos en 3D */
+.carousel-center {
+    filter: brightness(1.1) contrast(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+.carousel-side {
+    filter: brightness(0.9) contrast(0.95);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Smooth transitions para todos los elementos */
+.flex.items-center.justify-center.space-x-8 > div {
+    will-change: transform, opacity !important;
+    backface-visibility: hidden !important;
+    -webkit-backface-visibility: hidden !important;
+}
+
+/* Mejorar los botones de navegación */
+button[wire\:click="prevSlide"],
+button[wire\:click="nextSlide"] {
+    z-index: 1000 !important;
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+button[wire\:click="prevSlide"]:hover,
+button[wire\:click="nextSlide"]:hover {
+    background: rgba(255, 255, 255, 1) !important;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .carousel-3d-wrapper {
+        perspective: 800px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-3d-wrapper {
+        perspective: 600px !important;
+    }
+
+    .rotating-holder {
+        transform: rotateX(-10deg) !important;
+    }
+}
+
+
