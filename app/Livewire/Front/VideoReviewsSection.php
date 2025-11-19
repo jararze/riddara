@@ -30,7 +30,7 @@ class VideoReviewsSection extends Component
                 'title' => 'This is where the ride can get for your video',
                 'subtitle' => 'REVIEW GX3 PRO',
                 'channel' => 'CARS & LIFESTYLES',
-                'thumbnail' => '/frontend/images/1.png',
+                'thumbnail' => '/frontend/images/RIDDARA_RD6_Bolivia_Review.jpg',
                 'video_url' => 'https://www.youtube-nocookie.com/embed/aXtX2n9-vGg?si=dleZYLyGj5KaJMxo?rel=0&modestbranding=1',
                 'duration' => '05:31',
                 'views' => '125K views'

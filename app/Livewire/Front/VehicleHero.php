@@ -110,6 +110,58 @@ class VehicleHero extends Component
                     'plataforma' => ['prefix' => '', 'value' => '', 'unit' => '', 'label' => '']
                 ]
             ],
+            'rd6-electrica-bev-econ-4x2' => [
+                'background_image' => 'frontend/images/vehicles/rd6/Riddara_Bolivia_RD6_Hero_Desktop.jpg',
+                'background_image_mobile' => 'frontend/images/vehicles/rd6/Riddara_Bolivia_RD6_Hero_Mobile.jpg',
+                'title_type' => 'text',
+                'title' => 'RD6 ELÉCTRICA BEV ECON 4X2',
+                'subtitle' => '100% Eléctrica',
+                'selected_specs' => [
+                    'motor' => ['prefix' => '', 'value' => '73', 'unit' => 'KWH', 'label' => 'Batería '],
+                    'potencia' => ['prefix' => '', 'value' => '424', 'unit' => 'km', 'label' => 'Autonomía'],
+                    'velocidades' => ['prefix' => '', 'value' => '4x4', 'unit' => '', 'label' => 'Tracción'],
+                    'plataforma' => ['prefix' => '', 'value' => '', 'unit' => '', 'label' => '']
+                ]
+            ],
+            'rd6-electrica-bev-econ-4x4' => [
+                'background_image' => 'frontend/images/vehicles/rd6/Riddara_Bolivia_RD6_Hero_Desktop.jpg',
+                'background_image_mobile' => 'frontend/images/vehicles/rd6/Riddara_Bolivia_RD6_Hero_Mobile.jpg',
+                'title_type' => 'text',
+                'title' => 'RD6 ELÉCTRICA BEV ECON 4X4',
+                'subtitle' => '100% Eléctrica',
+                'selected_specs' => [
+                    'motor' => ['prefix' => '', 'value' => '73', 'unit' => 'KWH', 'label' => 'Batería '],
+                    'potencia' => ['prefix' => '', 'value' => '424', 'unit' => 'km', 'label' => 'Autonomía'],
+                    'velocidades' => ['prefix' => '', 'value' => '4x4', 'unit' => '', 'label' => 'Tracción'],
+                    'plataforma' => ['prefix' => '', 'value' => '', 'unit' => '', 'label' => '']
+                ]
+            ],
+            'rd6-hibrida-bev-phev-gl-4x4' => [
+                'background_image' => 'frontend/images/vehicles/rd6/Riddara_Bolivia_RD6_Hero_Desktop.jpg',
+                'background_image_mobile' => 'frontend/images/vehicles/rd6/Riddara_Bolivia_RD6_Hero_Mobile.jpg',
+                'title_type' => 'text',
+                'title' => 'RD6 HÍBRIDA BEV PHEV GL 4X4',
+                'subtitle' => '100% Eléctrica',
+                'selected_specs' => [
+                    'motor' => ['prefix' => '', 'value' => '73', 'unit' => 'KWH', 'label' => 'Batería '],
+                    'potencia' => ['prefix' => '', 'value' => '424', 'unit' => 'km', 'label' => 'Autonomía'],
+                    'velocidades' => ['prefix' => '', 'value' => '4x4', 'unit' => '', 'label' => 'Tracción'],
+                    'plataforma' => ['prefix' => '', 'value' => '', 'unit' => '', 'label' => '']
+                ]
+            ],
+            'rd6-hibrida-bev-phev-gs-4x4' => [
+                'background_image' => 'frontend/images/vehicles/rd6/Riddara_Bolivia_RD6_Hero_Desktop.jpg',
+                'background_image_mobile' => 'frontend/images/vehicles/rd6/Riddara_Bolivia_RD6_Hero_Mobile.jpg',
+                'title_type' => 'text',
+                'title' => 'RD6 HÍBRIDA BEV PHEV GS 4X4',
+                'subtitle' => '100% Eléctrica',
+                'selected_specs' => [
+                    'motor' => ['prefix' => '', 'value' => '73', 'unit' => 'KWH', 'label' => 'Batería '],
+                    'potencia' => ['prefix' => '', 'value' => '424', 'unit' => 'km', 'label' => 'Autonomía'],
+                    'velocidades' => ['prefix' => '', 'value' => '4x4', 'unit' => '', 'label' => 'Tracción'],
+                    'plataforma' => ['prefix' => '', 'value' => '', 'unit' => '', 'label' => '']
+                ]
+            ],
 
 
         ];

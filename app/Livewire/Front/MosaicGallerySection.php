@@ -33,10 +33,40 @@ class MosaicGallerySection extends Component
             [
                 'column' => 1,
                 'row_span' => 1,
-                'image' => 'frontend/images/mosaico/1.png',
+                'image' => 'frontend/images/vehicles/rd6/mosaico/RIDDARA_RD6_Bolivia_Galeria_1.jpg',
                 'alt' => 'Interior detail',
                 'overlay' => false
             ],
+            [
+                'column' => 1,
+                'row_span' => 1,
+                'image' => 'frontend/images/vehicles/rd6/mosaico/RIDDARA_RD6_Bolivia_Galeria_2.jpg',
+                'alt' => 'Seat detail',
+                'overlay' => false
+            ],
+            // Columna 2 (1 fila completa)
+            [
+                'column' => 2,
+                'row_span' => 2,
+                'image' => 'frontend/images/vehicles/rd6/mosaico/RIDDARA_RD6_Bolivia_Galeria_5.jpg',
+                'alt' => 'Car front view',
+                'overlay' => false
+            ],
+            // Columna 3 (2 filas)
+            [
+                'column' => 3,
+                'row_span' => 1,
+                'image' => 'frontend/images/vehicles/rd6/mosaico/RIDDARA_RD6_Bolivia_Galeria_4.jpg',
+                'alt' => 'Grille detail',
+                'overlay' => false
+            ],
+            [
+                'column' => 3,
+                'row_span' => 1,
+                'image' => 'frontend/images/vehicles/rd6/mosaico/RIDDARA_RD6_Bolivia_Galeria_3.jpg',
+                'alt' => 'Dashboard',
+                'overlay' => false
+            ]
         ]
     ];
 

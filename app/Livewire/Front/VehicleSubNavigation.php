@@ -50,36 +50,36 @@ class VehicleSubNavigation extends Component
     private function getVehicleConfig($slug)
     {
         $configs = [
-            'starray' => [
-                ['id' => 'starray', 'label' => 'Starray', 'anchor' => '#hero', 'active' => true],
+            'rd6-electrica-bev-econ-4x2' => [
+                ['id' => 'rd6-electrica-bev-econ-4x2', 'label' => 'RD6 BEV ECON', 'anchor' => '#hero', 'active' => true],
                 ['id' => 'versiones', 'label' => 'Versiones', 'anchor' => '#versiones', 'active' => true],
                 ['id' => 'tecnologia', 'label' => 'Tecnología', 'anchor' => '#tecnologia', 'active' => true],
                 ['id' => 'diseno', 'label' => 'Diseño', 'anchor' => '#diseno', 'active' => true]
             ],
 
-            'gx3-pro' => [
-                ['id' => 'gx3pro', 'label' => 'Gx3 Pro', 'anchor' => '#hero', 'active' => true],
+            'rd6-electrica-bev-econ-4x4' => [
+                ['id' => 'rd6-electrica-bev-econ-4x4', 'label' => 'RD6 BEV ECON', 'anchor' => '#hero', 'active' => true],
                 ['id' => 'versiones', 'label' => 'Versiones', 'anchor' => '#versiones', 'active' => true],
                 ['id' => 'tecnologia', 'label' => 'Tecnología', 'anchor' => '#tecnologia', 'active' => true],
                 ['id' => 'diseno', 'label' => 'Diseño', 'anchor' => '#diseno', 'active' => true]
             ],
 
-            'cityray' => [
-                ['id' => 'cityray', 'label' => 'Cityray', 'anchor' => '#hero', 'active' => true],
+            'rd6-hibrida-bev-phev-gl-4x4' => [
+                ['id' => 'rd6-hibrida-bev-phev-gl-4x4', 'label' => 'RD6 BEV PHEV', 'anchor' => '#hero', 'active' => true],
                 ['id' => 'versiones', 'label' => 'Versiones', 'anchor' => '#versiones', 'active' => true],
                 ['id' => 'tecnologia', 'label' => 'Tecnología', 'anchor' => '#tecnologia', 'active' => true],
                 ['id' => 'diseno', 'label' => 'Diseño', 'anchor' => '#diseno', 'active' => true]
             ],
 
-            'coolray' => [
-                ['id' => 'coolray', 'label' => 'Coolray', 'anchor' => '#hero', 'active' => true],
+            'rd6-hibrida-bev-phev-gs-4x4' => [
+                ['id' => 'rd6-hibrida-bev-phev-gs-4x4', 'label' => 'RD6 BEV PHEV', 'anchor' => '#hero', 'active' => true],
                 ['id' => 'versiones', 'label' => 'Versiones', 'anchor' => '#versiones', 'active' => true],
                 ['id' => 'tecnologia', 'label' => 'Tecnología', 'anchor' => '#tecnologia', 'active' => true],
                 ['id' => 'diseno', 'label' => 'Diseño', 'anchor' => '#diseno', 'active' => true]
             ],
 
             'rd6-electrica-bev-pro-4x4' => [
-                ['id' => 'RD6 BEV PRO', 'label' => 'RD6 BEV PRO', 'anchor' => '#hero', 'active' => true],
+                ['id' => 'rd6-electrica-bev-pro-4x4', 'label' => 'RD6 BEV PRO', 'anchor' => '#hero', 'active' => true],
                 ['id' => 'versiones', 'label' => 'Versiones', 'anchor' => '#versiones', 'active' => true],
                 ['id' => 'tecnologia', 'label' => 'Tecnología', 'anchor' => '#tecnologia', 'active' => true],
                 ['id' => 'diseno', 'label' => 'Diseño', 'anchor' => '#diseno', 'active' => true]
