@@ -10,13 +10,13 @@
         <livewire:front.vehicle-features :vehicle="$vehicle"/>
     </section>
 
-{{--    <section id="versiones" data-section="versiones">--}}
-{{--        <livewire:front.vehicle-versions--}}
-{{--            :vehicle="$vehicle"--}}
-{{--            :category="$categorySlug"--}}
-{{--            :slug="$vehicleSlug"--}}
-{{--        />--}}
-{{--    </section>--}}
+    <section id="versiones" data-section="versiones">
+        <livewire:front.vehicle-versions
+            :vehicle="$vehicle"
+            :category="$categorySlug"
+            :slug="$vehicleSlug"
+        />
+    </section>
 
 {{--    --}}{{-- Action Boxes --}}
     <section id="servicios">
