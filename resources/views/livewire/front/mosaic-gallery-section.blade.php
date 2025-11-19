@@ -1,6 +1,6 @@
 <div>
     <section class="{{ $galleryData['section_background'] }} {{ $galleryData['section_padding'] }}">
-        <div class="container mx-auto px-0">
+        <div class="container mx-auto px-5">
 
             {{-- Header opcional --}}
             @if($galleryData['header']['show_header'])
@@ -11,35 +11,74 @@
                 </div>
             @endif
         </div>
+
+        {{-- Desktop Layout --}}
         <div class="hidden lg:block">
-            {{-- Grid de mosaico --}}
-            <div
-                class="grid grid-cols-{{ $galleryData['layout']['columns'] }} {{ $galleryData['layout']['gap'] }} {{ $galleryData['layout']['container_height'] }}">
+            <div class="grid grid-cols-3 gap-0 h-[700px]">
 
-                @for($col = 1; $col <= $galleryData['layout']['columns']; $col++)
-                    <div class="flex flex-col {{ $galleryData['layout']['gap'] }}">
-                        @foreach($this->getImagesByColumn($col) as $image)
-                            <div
-                                class="relative overflow-hidden {{ $image['row_span'] == 2 ? 'flex-1' : 'h-1/2' }} group">
-                                <img
-                                    src="{{ asset($image['image']) }}"
-                                    alt="{{ $image['alt'] }}"
-                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                {{-- Columna 1 - 2 imágenes verticales --}}
+                <div class="flex flex-col gap-0">
+                    @foreach($this->getImagesByColumn(1) as $image)
+                        <div class="relative overflow-hidden h-1/2 group">
+                            <img
+                                src="{{ asset($image['image']) }}"
+                                alt="{{ $image['alt'] }}"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
 
-                                @if(($image['overlay'] ?? false))
-                                    <div
-                                        class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                        <div class="absolute bottom-4 left-4 text-white">
-                                            <p class="text-sm font-medium">{{ $image['alt'] }}</p>
-                                        </div>
+                            @if(($image['overlay'] ?? false))
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <div class="absolute bottom-4 left-4 text-white">
+                                        <p class="text-sm font-medium">{{ $image['alt'] }}</p>
                                     </div>
-                                @endif
-                            </div>
-                        @endforeach
-                    </div>
-                @endfor
+                                </div>
+                            @endif
+                        </div>
+                    @endforeach
+                </div>
+
+                {{-- Columna 2 - 1 imagen completa --}}
+                <div class="flex flex-col gap-0">
+                    @foreach($this->getImagesByColumn(2) as $image)
+                        <div class="relative overflow-hidden h-full group">
+                            <img
+                                src="{{ asset($image['image']) }}"
+                                alt="{{ $image['alt'] }}"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                            @if(($image['overlay'] ?? false))
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <div class="absolute bottom-4 left-4 text-white">
+                                        <p class="text-sm font-medium">{{ $image['alt'] }}</p>
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
+                    @endforeach
+                </div>
+
+                {{-- Columna 3 - 2 imágenes verticales --}}
+                <div class="flex flex-col gap-0">
+                    @foreach($this->getImagesByColumn(3) as $image)
+                        <div class="relative overflow-hidden h-1/2 group">
+                            <img
+                                src="{{ asset($image['image']) }}"
+                                alt="{{ $image['alt'] }}"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                            @if(($image['overlay'] ?? false))
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <div class="absolute bottom-4 left-4 text-white">
+                                        <p class="text-sm font-medium">{{ $image['alt'] }}</p>
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
+                    @endforeach
+                </div>
+
             </div>
         </div>
+
         {{-- Mobile Layout (Vertical Stack) --}}
         <div class="lg:hidden">
             <div>
@@ -55,11 +94,6 @@
     </section>
 
     <style>
-        /* Asegurar que las columnas tengan la misma altura */
-        .grid > div {
-            min-height: 100%;
-        }
-
         /* Animaciones adicionales */
         @keyframes zoomIn {
             from {

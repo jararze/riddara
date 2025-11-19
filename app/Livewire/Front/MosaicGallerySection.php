@@ -52,7 +52,7 @@ class MosaicGallerySection extends Component
     private function getVehicleConfig($slug)
     {
         $configs = [
-            'starray' => [
+            'rd6-electrica-bev-pro-4x4' => [
                 'layout' => [
                     'columns' => 3,
                     'gap' => 'gap-0',
@@ -64,14 +64,14 @@ class MosaicGallerySection extends Component
                     [
                         'column' => 1,
                         'row_span' => 1,
-                        'image' => 'frontend/images/mosaico/1.png',
+                        'image' => 'frontend/images/vehicles/rd6/mosaico/RIDDARA_RD6_Bolivia_Galeria_1.jpg',
                         'alt' => 'Interior detail',
                         'overlay' => false
                     ],
                     [
                         'column' => 1,
                         'row_span' => 1,
-                        'image' => 'frontend/images/mosaico/2.jpg',
+                        'image' => 'frontend/images/vehicles/rd6/mosaico/RIDDARA_RD6_Bolivia_Galeria_2.jpg',
                         'alt' => 'Seat detail',
                         'overlay' => false
                     ],
@@ -79,7 +79,7 @@ class MosaicGallerySection extends Component
                     [
                         'column' => 2,
                         'row_span' => 2,
-                        'image' => 'frontend/images/mosaico/3.jpg',
+                        'image' => 'frontend/images/vehicles/rd6/mosaico/RIDDARA_RD6_Bolivia_Galeria_5.jpg',
                         'alt' => 'Car front view',
                         'overlay' => false
                     ],
@@ -87,146 +87,21 @@ class MosaicGallerySection extends Component
                     [
                         'column' => 3,
                         'row_span' => 1,
-                        'image' => 'frontend/images/mosaico/4.png',
+                        'image' => 'frontend/images/vehicles/rd6/mosaico/RIDDARA_RD6_Bolivia_Galeria_4.jpg',
                         'alt' => 'Grille detail',
                         'overlay' => false
                     ],
                     [
                         'column' => 3,
                         'row_span' => 1,
-                        'image' => 'frontend/images/mosaico/5.png',
+                        'image' => 'frontend/images/vehicles/rd6/mosaico/RIDDARA_RD6_Bolivia_Galeria_3.jpg',
                         'alt' => 'Dashboard',
                         'overlay' => false
                     ]
                 ]
             ],
 
-            'gx3-pro' => [
-                'layout' => [
-                    'columns' => 2,
-                    'gap' => 'gap-0',
-                    'container_height' => 'h-[700px]'
-                ],
 
-                'images' => [
-                    [
-                        'column' => 1,
-                        'row_span' => 1,
-                        'image' => 'frontend/images/vehicles/gx3pro/mosaic/GX3 Pro Trasero.jpg',
-                        'alt' => 'Interior detail',
-                        'overlay' => false
-                    ],
-                    [
-                        'column' => 1,
-                        'row_span' => 1,
-                        'image' => 'frontend/images/vehicles/gx3pro/mosaic/0_4-zoom_322a3488.jpg',
-                        'alt' => 'Seat detail',
-                        'overlay' => false
-                    ],
-                    [
-                        'column' => 2,
-                        'row_span' => 1,
-                        'image' => 'frontend/images/vehicles/gx3pro/mosaic/GX3 Pro Diagonal.jpg',
-                        'alt' => 'Grille detail',
-                        'overlay' => false
-                    ],
-                    [
-                        'column' => 2,
-                        'row_span' => 1,
-                        'image' => 'frontend/images/vehicles/gx3pro/mosaic/GX3 Pro Aro.jpg',
-                        'alt' => 'Dashboard',
-                        'overlay' => false
-                    ]
-                ]
-            ],
-
-            'cityray' => [
-                'layout' => [
-                    'columns' => 3,
-                    'gap' => 'gap-0',
-                    'container_height' => 'h-[700px]'
-                ],
-
-                'images' => [
-                    // Columna 1 (2 filas)
-                    [
-                        'column' => 1,
-                        'row_span' => 1,
-                        'image' => 'frontend/images/vehicles/cityray/mosaic/1.jpg',
-                        'alt' => 'Interior detail',
-                        'overlay' => false
-                    ],
-                    [
-                        'column' => 1,
-                        'row_span' => 1,
-                        'image' => 'frontend/images/vehicles/cityray/mosaic/2.jpg',
-                        'alt' => 'Seat detail',
-                        'overlay' => false
-                    ],
-                    // Columna 2 (1 fila completa)
-                    [
-                        'column' => 2,
-                        'row_span' => 2,
-                        'image' => 'frontend/images/vehicles/cityray/mosaic/3.jpg',
-                        'alt' => 'Car front view',
-                        'overlay' => false
-                    ],
-                    // Columna 3 (2 filas)
-                    [
-                        'column' => 2,
-                        'row_span' => 2,
-                        'image' => 'frontend/images/vehicles/cityray/mosaic/4.jpg',
-                        'alt' => 'Grille detail',
-                        'overlay' => false
-                    ],
-                    [
-                        'column' => 3,
-                        'row_span' => 1,
-                        'image' => 'frontend/images/vehicles/cityray/mosaic/5.jpg',
-                        'alt' => 'Dashboard',
-                        'overlay' => false
-                    ],
-                    [
-                        'column' => 3,
-                        'row_span' => 2,
-                        'image' => 'frontend/images/vehicles/cityray/mosaic/6.jpg',
-                        'alt' => 'Dashboard',
-                        'overlay' => false
-                    ]
-                ]
-            ],
-
-            'coolray' => [
-                'layout' => [
-                    'columns' => 3,
-                    'gap' => 'gap-0',
-                    'container_height' => 'h-[700px]'
-                ],
-
-                'images' => [
-                    [
-                        'column' => 1,
-                        'row_span' => 2,
-                        'image' => 'frontend/images/vehicles/coolray/mosaic/1.jpg',
-                        'alt' => 'Interior detail',
-                        'overlay' => false
-                    ],
-                    [
-                        'column' => 2,
-                        'row_span' => 2,
-                        'image' => 'frontend/images/vehicles/coolray/mosaic/2.jpg',
-                        'alt' => 'Seat detail',
-                        'overlay' => false
-                    ],
-                    [
-                        'column' => 3,
-                        'row_span' => 2,
-                        'image' => 'frontend/images/vehicles/coolray/mosaic/3.jpg',
-                        'alt' => 'Grille detail',
-                        'overlay' => false
-                    ],
-                ]
-            ],
         ];
 
         return $configs[$slug] ?? [];
