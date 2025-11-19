@@ -14,16 +14,16 @@
 
             <!-- Columna 2: Garantía Extendida -->
             <div class="text-center">
-                <img src="assets/images/Grupo 1.png" alt="" class="w-64">
+                <img src="{{ asset("assets/images/Grupo 1.png") }}" alt="" class="w-64">
             </div>
 
             <!-- Columna 3: Mantenimientos -->
             <div class="text-center">
-                <img src="assets/images/Grupo 2.png" alt="" class="w-64 mt-[-41px]">
+                <img src="{{ asset("assets/images/Grupo 2.png") }}" alt="" class="w-64 mt-[-41px]">
             </div>
 
             <div class="text-center">
-                <img src="assets/images/Grupo 3.png" alt="" class="w-64 mt-[-21px]">
+                <img src="{{ asset("assets/images/Grupo 3.png") }}" alt="" class="w-64 mt-[-21px]">
             </div>
         </div>
 

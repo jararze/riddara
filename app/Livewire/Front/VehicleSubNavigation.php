@@ -77,6 +77,13 @@ class VehicleSubNavigation extends Component
                 ['id' => 'tecnologia', 'label' => 'Tecnología', 'anchor' => '#tecnologia', 'active' => true],
                 ['id' => 'diseno', 'label' => 'Diseño', 'anchor' => '#diseno', 'active' => true]
             ],
+
+            'rd6-electrica-bev-pro-4x4' => [
+                ['id' => 'RD6 BEV PRO', 'label' => 'RD6 BEV PRO', 'anchor' => '#hero', 'active' => true],
+                ['id' => 'versiones', 'label' => 'Versiones', 'anchor' => '#versiones', 'active' => true],
+                ['id' => 'tecnologia', 'label' => 'Tecnología', 'anchor' => '#tecnologia', 'active' => true],
+                ['id' => 'diseno', 'label' => 'Diseño', 'anchor' => '#diseno', 'active' => true]
+            ],
         ];
 
         return $configs[$slug] ?? [];

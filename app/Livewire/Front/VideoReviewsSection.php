@@ -17,7 +17,7 @@ class VideoReviewsSection extends Component
 
         'header' => [
             'title' => 'VIDEOS Y RESEÑAS',
-            'subtitle' => 'Conoce todo sobre Geely Starray con los siguientes videos',
+            'subtitle' => 'Conoce todo sobre RIDDARA RD6  con los siguientes videos',
             'title_size' => 'text-3xl lg:text-4xl',
             'subtitle_size' => 'text-lg',
             'title_color' => 'text-white',
@@ -31,7 +31,7 @@ class VideoReviewsSection extends Component
                 'subtitle' => 'REVIEW GX3 PRO',
                 'channel' => 'CARS & LIFESTYLES',
                 'thumbnail' => '/frontend/images/1.png',
-                'video_url' => 'https://www.youtube-nocookie.com/embed/POBCHlhgO0Q?rel=0&modestbranding=1',
+                'video_url' => 'https://www.youtube-nocookie.com/embed/aXtX2n9-vGg?si=dleZYLyGj5KaJMxo?rel=0&modestbranding=1',
                 'duration' => '05:31',
                 'views' => '125K views'
             ],
@@ -66,10 +66,10 @@ class VideoReviewsSection extends Component
     private function getVehicleConfig($slug)
     {
         $configs = [
-            'starray' => [
+            'rd6-electrica-bev-pro-4x4' => [
                 'header' => [
                     'title' => 'VIDEOS Y RESEÑAS',
-                    'subtitle' => 'Conoce todo sobre Geely Starray con los siguientes videos',
+                    'subtitle' => 'Conoce todo sobre RIDDARA RD6 con los siguientes videos',
                     'title_size' => 'text-3xl lg:text-4xl',
                     'subtitle_size' => 'text-lg',
                     'title_color' => 'text-white',
@@ -80,107 +80,16 @@ class VideoReviewsSection extends Component
                     [
                         'id' => 'video-1',
                         'title' => 'This is where the ride can get for your video',
-                        'subtitle' => 'REVIEW STARRAY',
+                        'subtitle' => 'REVIEW RIDDARA RD6',
                         'channel' => 'Reseñas',
-                        'thumbnail' => '/frontend/images/1.png',
-                        'video_url' => 'https://www.youtube.com/embed/XFKtYQuqWPI',
-                        'duration' => '05:31',
-                        'views' => '125K views'
-                    ],
-                    [
-                        'id' => 'video-2',
-                        'title' => 'This is where the ride can get for your video',
-                        'subtitle' => 'REVIEW STARRAY',
-                        'channel' => 'Reseñas',
-                        'thumbnail' => '/frontend/images/1.png',
-                        'video_url' => 'https://www.youtube.com/embed/Bi1i4T8tMGM?si=TA5Vvy3PptKLwG5p',
+                        'thumbnail' => '/frontend/images/RIDDARA_RD6_Bolivia_Review.jpg',
+                        'video_url' => 'https://https://www.youtube-nocookie.com/embed/aXtX2n9-vGg?si=dleZYLyGj5KaJMxo?rel=0&modestbranding=1',
                         'duration' => '05:31',
                         'views' => '125K views'
                     ],
                 ],
             ],
 
-            'gx3-pro' => [
-                'header' => [
-                    'title' => 'VIDEOS Y RESEÑAS',
-                    'subtitle' => 'Conoce todo sobre Geely GX3 PRO con los siguientes videos',
-                    'title_size' => 'text-3xl lg:text-4xl',
-                    'subtitle_size' => 'text-lg',
-                    'title_color' => 'text-white',
-                    'subtitle_color' => 'text-gray-300'
-                ],
-
-                'videos' => [
-                    [
-                        'id' => 'video-1',
-                        'title' => 'This is where the ride can get for your video',
-                        'subtitle' => 'REVIEW GX3 PRO',
-                        'channel' => 'Reseñas',
-                        'thumbnail' => '/frontend/images/vehicles/gx3pro/Geely_Bolivia_GX3_PRO_Portada_Reviews.jpg',
-                        'video_url' => 'https://www.youtube.com/embed/631B54-0P80?si=foam_lPDmAwoHR5G',
-                        'duration' => '05:31',
-                        'views' => '125K views'
-                    ],
-                    [
-                        'id' => 'video-2',
-                        'title' => 'This is where the ride can get for your video',
-                        'subtitle' => 'REVIEW GX3 PRO',
-                        'channel' => 'Reseñas',
-                        'thumbnail' => '/frontend/images/vehicles/gx3pro/Geely_Bolivia_GX3_PRO_Portada_Reviews.jpg',
-                        'video_url' => 'https://www.youtube.com/embed/8oVUOlZtQ9U?si=Ov1jSCoJ26OrX2nM',
-                        'duration' => '05:31',
-                        'views' => '125K views'
-                    ],
-                ],
-            ],
-
-            'cityray' => [
-                'header' => [
-                    'title' => 'VIDEOS Y RESEÑAS',
-                    'subtitle' => 'Conoce todo sobre Geely CITYRAY con los siguientes videos',
-                    'title_size' => 'text-3xl lg:text-4xl',
-                    'subtitle_size' => 'text-lg',
-                    'title_color' => 'text-white',
-                    'subtitle_color' => 'text-gray-300'
-                ],
-
-                'videos' => [
-                    [
-                        'id' => 'video-1',
-                        'title' => 'This is where the ride can get for your video',
-                        'subtitle' => 'REVIEW CITYRAY',
-                        'channel' => 'Reseñas',
-                        'thumbnail' => '/frontend/images/vehicles/cityray/Geely Cityray Review Poratada.jpg',
-                        'video_url' => 'https://www.youtube.com/embed/fcVfqc5WCHc?si=WIvSDGyFGt73yByX',
-                        'duration' => '05:31',
-                        'views' => '125K views'
-                    ],
-                ],
-            ],
-
-            'coolray' => [
-                'header' => [
-                    'title' => 'VIDEOS Y RESEÑAS',
-                    'subtitle' => 'Conoce todo sobre Geely COOLRAY con los siguientes videos',
-                    'title_size' => 'text-3xl lg:text-4xl',
-                    'subtitle_size' => 'text-lg',
-                    'title_color' => 'text-white',
-                    'subtitle_color' => 'text-gray-300'
-                ],
-
-                'videos' => [
-                    [
-                        'id' => 'video-1',
-                        'title' => 'This is where the ride can get for your video',
-                        'subtitle' => 'REVIEW COOLRAY',
-                        'channel' => 'Reseñas',
-                        'thumbnail' => '/frontend/images/vehicles/coolray/GEELY_BOLIVIA_PORTADA VIDEO.png',
-                        'video_url' => 'https://www.youtube.com/embed/Nc0YfZ8V0Mw?si=vgXDbQiE-KlljUlq',
-                        'duration' => '05:31',
-                        'views' => '125K views'
-                    ],
-                ],
-            ],
         ];
 
         return $configs[$slug] ?? [];
