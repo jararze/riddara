@@ -11,7 +11,7 @@ class AboutSection extends Component
     public $sectionData = [];
 
     private $defaultSectionData = [
-        'logo' => 'frontend/images/logo-negro.svg',
+        'logo' => 'frontend/images/logo-negro.png',
         'title' => 'Riddara ',
         'description' => 'En Riddara Bolivia, encuentra la energía que impulsa el futuro. Riddara es la marca de camionetas de nueva energía del grupo Geely, creada para transformar la conducción con tecnología inteligente y potencia eléctrica. Líder en pickups eléctricas en China, combina fuerza, eficiencia y confort con una visión sostenible para las necesidades de Bolivia. Sus modelos 100% eléctricos e híbridos integran diseño avanzado, tracción inteligente y un espíritu de libertad que redefine la experiencia al volante.',
         'button_text' => 'Descubre más',

@@ -17,7 +17,7 @@ class TestDriveSection extends Component
         'button_url' => '/forms',
         'background_image' => 'frontend/images/vehicles/rd6/Riddara-Bolivia-Camionetas-Electricas-Test-Drive-web.jpg',
         'background_image_mobile' => 'frontend/images/vehicles/rd6/Riddara-Bolivia-Camionetas-Electricas-Test-Drive-mobile.jpg',
-        'text_color' => '#fff',
+        'text_color' => '#FFFFFF',
         'text_color_phone' => '#fff',
         'show_image' => true,
         'show_features' => false,

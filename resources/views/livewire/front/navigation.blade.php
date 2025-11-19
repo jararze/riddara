@@ -8,7 +8,7 @@
                     <img
                         src="{{ asset($logo['image']) }}"
                         alt="{{ $logo['alt'] }}"
-                        class="h-8 lg:h-18 w-auto object-contain"
+                        class="h-2 lg:h-4 w-auto object-contain"
                     />
                 </a>
             </div>

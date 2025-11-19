@@ -19,7 +19,7 @@ class Footer extends Component
     public $legalLinks;
 
     public $logo = [
-        'image' => '/frontend/images/logo-blanco.svg',
+        'image' => '/frontend/images/logo-blanco.png',
         'alt' => 'Geely Bolivia',
     ];
 

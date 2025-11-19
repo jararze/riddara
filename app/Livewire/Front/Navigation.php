@@ -10,7 +10,7 @@ class Navigation extends Component
     public $isHomePage = false;
 
     public $logo = [
-        'image' => 'frontend/images/logo-negro.svg',
+        'image' => 'frontend/images/logo-negro.png',
         'alt' => 'Riddara Bolivia',
     ];
 

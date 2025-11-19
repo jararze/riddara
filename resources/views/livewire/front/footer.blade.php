@@ -96,7 +96,7 @@
                             <img
                                 src="{{ asset($logo['image']) }}"
                                 alt="{{ $logo['alt'] }}"
-                                class="h-6 lg:h-12 w-auto object-contain"
+                                class="h-1 lg:h-2 w-auto object-contain"
                             />
                         </a>
                         <span class="footer__copyright">© {{ $copyrightYear }} {{ $companyName }}</span>

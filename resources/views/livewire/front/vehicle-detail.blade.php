@@ -63,7 +63,7 @@
 
     <livewire:front.about-section
         :sectionData="[
-                'logo' => 'frontend/images/logo-blanco.svg',
+                'logo' => 'frontend/images/logo-blanco.png',
                 'background_color' => '#000',
                 'text_color' => '#fff'
             ]"

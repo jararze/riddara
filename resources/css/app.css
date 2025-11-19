@@ -110,7 +110,7 @@
 
     /* Aplicar Inter como fuente por defecto para el body */
     body {
-        font-family: Arial, sans-serif;
+        font-family: 'Montserrat', sans-serif;
         font-weight: 400;
     }
 
@@ -131,7 +131,7 @@
     }
 
     h3, h4, h5, h6 {
-        font-family: Arial, sans-serif;
+        font-family: 'Montserrat', sans-serif;
         font-size: 1.5rem;
         line-height: 1.4;
     }
@@ -169,7 +169,7 @@
 
     /* AGREGAR después de h6: */
     .text-light, p.light {
-        font-family: Arial, sans-serif;
+        font-family: 'Montserrat', sans-serif;
         font-weight: 300;
     }
 
@@ -210,7 +210,7 @@ select:focus[data-flux-control] {
         color: #000000;
     }
     .font-body {
-        font-family: Arial, sans-serif !important;
+        font-family: 'Montserrat', sans-serif !important;
         font-weight: 400;
     }
 

@@ -47,7 +47,7 @@
                     <div class="{{ $imageHeight['content'] }} flex flex-col justify-center py-8">
                         <div class="max-w-6xl mx-auto w-full">
                             <h2 class="text-3xl lg:text-5xl font-bold mb-8"
-                                style="color: {{ $sectionData['text_color'] }};">
+                                style="color: {{ $sectionData['text_color'] }}; color: #FFFFFF">
                                 {{ $sectionData['title'] }}
                             </h2>
 
@@ -111,16 +111,16 @@
                 <div class="relative z-10 container mx-auto px-4 h-full">
                     <div class="flex items-start h-full pt-8 md:pt-15 pb-16 px-4">
                         <div class="max-w-lg">
-                            <h2 class="text-3xl lg:text-5xl font-bold mb-6 text-{{ $sectionData['text_color_phone'] }} md:text-{{ $sectionData['text_color'] }}">
+                            <h2 class="text-3xl lg:text-5xl font-bold mb-6 text-{{ $sectionData['text_color_phone'] }} md:text-{{ $sectionData['text_color'] }}" style="color: {{ $sectionData['text_color'] }};">
 {{--                                @dd($sectionData['text_color_phone'],  $sectionData['text_color'])--}}
                                 {{ $sectionData['title'] }}
                             </h2>
 
                             <div class="mb-8 space-y-2">
-                                <p class="text-base leading-relaxed text-{{ $sectionData['text_color_phone'] }} md:text-{{ $sectionData['text_color'] }}">
+                                <p class="text-base leading-relaxed text-{{ $sectionData['text_color_phone'] }} md:text-{{ $sectionData['text_color'] }}" style="color: {{ $sectionData['text_color'] }};">
                                     {{ $sectionData['description'] }}
                                 </p>
-                                <p class="text-base font-bold text-{{ $sectionData['text_color_phone'] }} md:text-{{ $sectionData['text_color'] }}">
+                                <p class="text-base font-bold text-{{ $sectionData['text_color_phone'] }} md:text-{{ $sectionData['text_color'] }}" style="color: {{ $sectionData['text_color'] }};">
                                     {{ $sectionData['cta_text'] }}
                                 </p>
                             </div>

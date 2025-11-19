@@ -18,7 +18,7 @@
     <section id="nosotros" class="scroll-animate">
         <livewire:front.about-section
             :sectionData="[
-                'logo' => 'frontend/images/logo-blanco.svg',
+                'logo' => 'frontend/images/logo-blanco.png',
                 'background_color' => '#000',
                 'text_color' => '#fff'
             ]"
@@ -27,7 +27,7 @@
 {{--        <livewire:front.about-section--}}
 {{--            layout="split-left"--}}
 {{--            :sectionData="[--}}
-{{--                'logo' => 'frontend/images/logo-blanco.svg',--}}
+{{--                'logo' => 'frontend/images/logo-blanco.png',--}}
 {{--                'background_color' => '#000',--}}
 {{--                'text_color' => '#fff'--}}
 {{--            ]"--}}
@@ -35,7 +35,7 @@
 
 {{--        <livewire:front.about-section layout="split-right"--}}
 {{--                                      :sectionData="[--}}
-{{--                    'logo' => 'frontend/images/logo-blanco.svg',--}}
+{{--                    'logo' => 'frontend/images/logo-blanco.png',--}}
 {{--                    'background_color' => '#000',--}}
 {{--                    'text_color' => '#fff'--}}
 {{--                ]"--}}
@@ -43,7 +43,7 @@
 
 {{--        <livewire:front.about-section layout="compact-right"--}}
 {{--                                      :sectionData="[--}}
-{{--                    'logo' => 'frontend/images/logo-negro.svg',--}}
+{{--                    'logo' => 'frontend/images/logo-negro.png',--}}
 {{--                    'background_color' => '#fff',--}}
 {{--                    'text_color' => '#000'--}}
 {{--                ]"--}}
@@ -51,7 +51,7 @@
 
 {{--        <livewire:front.about-section layout="compact-left"--}}
 {{--                                      :sectionData="[--}}
-{{--                    'logo' => 'frontend/images/logo-negro.svg',--}}
+{{--                    'logo' => 'frontend/images/logo-negro.png',--}}
 {{--                    'background_color' => '#fff',--}}
 {{--                    'text_color' => '#000'--}}
 {{--                ]"--}}
@@ -71,7 +71,8 @@
             :sectionData="[
                 'section_height' => 'min-h-[600px]',
                 'show_image' => true,
-                'background_image' => 'frontend/images/vehicles/rd6/Riddara-Bolivia-Camionetas-Electricas-Test-Drive-web.jpg'
+                'background_image' => 'frontend/images/vehicles/rd6/Riddara-Bolivia-Camionetas-Electricas-Test-Drive-web.jpg',
+                'text_color' => '#fff'
         ]"/>
 
 

@@ -8,7 +8,7 @@
                     <div class="mb-8">
                         <img src="{{ asset($sectionData['logo']) }}"
                              alt="{{ $sectionData['title'] }}"
-                             class="mx-auto h-16 w-auto">
+                             class="mx-auto h-4 w-auto">
                     </div>
                     <div class="mb-10">
                         <p class="text-lg leading-relaxed max-w-3xl mx-auto"
