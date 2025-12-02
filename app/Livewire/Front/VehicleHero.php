@@ -101,12 +101,12 @@ class VehicleHero extends Component
                 'background_image' => 'frontend/images/vehicles/rd6/Riddara_Bolivia_RD6_Hero_Desktop.jpg',
                 'background_image_mobile' => 'frontend/images/vehicles/rd6/Riddara_Bolivia_RD6_Hero_Mobile.jpg',
                 'title_type' => 'text',
-                'title' => 'RD6 BEV PRO',
-                'subtitle' => '100% Eléctrica',
+                'title' => 'RIDDARA RD6',
+                'subtitle' => 'Línea de camionetas eléctricas e híbridas',
                 'selected_specs' => [
-                    'motor' => ['prefix' => '', 'value' => '73', 'unit' => 'KWH', 'label' => 'Batería '],
-                    'potencia' => ['prefix' => '', 'value' => '424', 'unit' => 'km', 'label' => 'Autonomía'],
-                    'velocidades' => ['prefix' => '', 'value' => '4x4', 'unit' => '', 'label' => 'Tracción'],
+                    'motor' => ['prefix' => '', 'value' => '', 'unit' => '', 'label' => ' '],
+                    'potencia' => ['prefix' => '', 'value' => '', 'unit' => '', 'label' => ''],
+                    'velocidades' => ['prefix' => '', 'value' => '', 'unit' => '', 'label' => ''],
                     'plataforma' => ['prefix' => '', 'value' => '', 'unit' => '', 'label' => '']
                 ]
             ],
@@ -114,12 +114,12 @@ class VehicleHero extends Component
                 'background_image' => 'frontend/images/vehicles/rd6/Riddara_Bolivia_RD6_Hero_Desktop.jpg',
                 'background_image_mobile' => 'frontend/images/vehicles/rd6/Riddara_Bolivia_RD6_Hero_Mobile.jpg',
                 'title_type' => 'text',
-                'title' => 'RD6 ELÉCTRICA BEV ECON 4X2',
-                'subtitle' => '100% Eléctrica',
+                'title' => 'RIDDARA RD6 ECON 4X2',
+                'subtitle' => 'Línea de camionetas eléctricas e híbridas',
                 'selected_specs' => [
-                    'motor' => ['prefix' => '', 'value' => '73', 'unit' => 'KWH', 'label' => 'Batería '],
-                    'potencia' => ['prefix' => '', 'value' => '424', 'unit' => 'km', 'label' => 'Autonomía'],
-                    'velocidades' => ['prefix' => '', 'value' => '4x4', 'unit' => '', 'label' => 'Tracción'],
+                    'motor' => ['prefix' => '', 'value' => '', 'unit' => '', 'label' => ' '],
+                    'potencia' => ['prefix' => '', 'value' => '', 'unit' => '', 'label' => ''],
+                    'velocidades' => ['prefix' => '', 'value' => '', 'unit' => '', 'label' => ''],
                     'plataforma' => ['prefix' => '', 'value' => '', 'unit' => '', 'label' => '']
                 ]
             ],
@@ -127,12 +127,12 @@ class VehicleHero extends Component
                 'background_image' => 'frontend/images/vehicles/rd6/Riddara_Bolivia_RD6_Hero_Desktop.jpg',
                 'background_image_mobile' => 'frontend/images/vehicles/rd6/Riddara_Bolivia_RD6_Hero_Mobile.jpg',
                 'title_type' => 'text',
-                'title' => 'RD6 ELÉCTRICA BEV ECON 4X4',
-                'subtitle' => '100% Eléctrica',
+                'title' => 'RIDDARA RD6 ECON 4X4',
+                'subtitle' => 'Línea de camionetas eléctricas e híbridas',
                 'selected_specs' => [
-                    'motor' => ['prefix' => '', 'value' => '73', 'unit' => 'KWH', 'label' => 'Batería '],
-                    'potencia' => ['prefix' => '', 'value' => '424', 'unit' => 'km', 'label' => 'Autonomía'],
-                    'velocidades' => ['prefix' => '', 'value' => '4x4', 'unit' => '', 'label' => 'Tracción'],
+                    'motor' => ['prefix' => '', 'value' => '', 'unit' => '', 'label' => ' '],
+                    'potencia' => ['prefix' => '', 'value' => '', 'unit' => '', 'label' => ''],
+                    'velocidades' => ['prefix' => '', 'value' => '', 'unit' => '', 'label' => ''],
                     'plataforma' => ['prefix' => '', 'value' => '', 'unit' => '', 'label' => '']
                 ]
             ],
@@ -140,12 +140,12 @@ class VehicleHero extends Component
                 'background_image' => 'frontend/images/vehicles/rd6/Riddara_Bolivia_RD6_Hero_Desktop.jpg',
                 'background_image_mobile' => 'frontend/images/vehicles/rd6/Riddara_Bolivia_RD6_Hero_Mobile.jpg',
                 'title_type' => 'text',
-                'title' => 'RD6 HÍBRIDA BEV PHEV GL 4X4',
-                'subtitle' => '100% Eléctrica',
+                'title' => 'RIDDARA RD6 PHEV GL 4X4',
+                'subtitle' => 'Línea de camionetas eléctricas e híbridas',
                 'selected_specs' => [
-                    'motor' => ['prefix' => '', 'value' => '73', 'unit' => 'KWH', 'label' => 'Batería '],
-                    'potencia' => ['prefix' => '', 'value' => '424', 'unit' => 'km', 'label' => 'Autonomía'],
-                    'velocidades' => ['prefix' => '', 'value' => '4x4', 'unit' => '', 'label' => 'Tracción'],
+                    'motor' => ['prefix' => '', 'value' => '', 'unit' => '', 'label' => ' '],
+                    'potencia' => ['prefix' => '', 'value' => '', 'unit' => '', 'label' => ''],
+                    'velocidades' => ['prefix' => '', 'value' => '', 'unit' => '', 'label' => ''],
                     'plataforma' => ['prefix' => '', 'value' => '', 'unit' => '', 'label' => '']
                 ]
             ],
@@ -153,12 +153,12 @@ class VehicleHero extends Component
                 'background_image' => 'frontend/images/vehicles/rd6/Riddara_Bolivia_RD6_Hero_Desktop.jpg',
                 'background_image_mobile' => 'frontend/images/vehicles/rd6/Riddara_Bolivia_RD6_Hero_Mobile.jpg',
                 'title_type' => 'text',
-                'title' => 'RD6 HÍBRIDA BEV PHEV GS 4X4',
-                'subtitle' => '100% Eléctrica',
+                'title' => 'RIDDARA RD6 PHEV GS 4X4',
+                'subtitle' => 'Línea de camionetas eléctricas e híbridas',
                 'selected_specs' => [
-                    'motor' => ['prefix' => '', 'value' => '73', 'unit' => 'KWH', 'label' => 'Batería '],
-                    'potencia' => ['prefix' => '', 'value' => '424', 'unit' => 'km', 'label' => 'Autonomía'],
-                    'velocidades' => ['prefix' => '', 'value' => '4x4', 'unit' => '', 'label' => 'Tracción'],
+                    'motor' => ['prefix' => '', 'value' => '', 'unit' => '', 'label' => ' '],
+                    'potencia' => ['prefix' => '', 'value' => '', 'unit' => '', 'label' => ''],
+                    'velocidades' => ['prefix' => '', 'value' => '', 'unit' => '', 'label' => ''],
                     'plataforma' => ['prefix' => '', 'value' => '', 'unit' => '', 'label' => '']
                 ]
             ],

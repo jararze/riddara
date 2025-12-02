@@ -150,7 +150,7 @@
                    id="receive_offers_{{ $activeTab }}"
                    class="mt-1 h-4 w-4 text-[#3B4C39] focus:ring-blue-500 border-gray-300 rounded">
             <label for="receive_offers_{{ $activeTab }}" class="ml-2 text-sm text-gray-600">
-                Deseo recibir ofertas y promociones especiales de Geely por WhatsApp / Email
+                Deseo recibir ofertas y promociones especiales de Riddara por WhatsApp / Email
             </label>
         </div>
 

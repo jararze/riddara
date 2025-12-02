@@ -77,12 +77,12 @@ class FormDetail extends Component
     ];
 
     public $pageData = [
-        'title' => 'PRUEBA UN GEELY POR TI MISMO',
-        'description' => 'Escoge cómo deseas vivir tu experiencia Geely',
+        'title' => 'PRUEBA UNA RIDDARA POR TI MISMO',
+        'description' => 'Escoge cómo deseas vivir tu experiencia Riddara',
         'tabs' => [
             'test-drive' => [
                 'title' => 'TEST DRIVE',
-                'description' => 'Agenda tu Test Drive y descubre la emoción de manejar un Geely.'
+                'description' => 'Agenda tu Test Drive y descubre la emoción de manejar una Riddara.'
             ],
             'cotizacion' => [
                 'title' => 'COTIZACIÓN',
@@ -95,28 +95,25 @@ class FormDetail extends Component
         ],
         'sucursales' => [
             'title' => 'NUESTRAS SUCURSALES',
-            'description' => 'Para mejorar la comodidad del cliente, Geely está desarrollando su red de ventas en toda Bolivia, para ofrecer fácil acceso a nuestros vehículos innovadores.',
+            'description' => 'Para mejorar la comodidad del cliente, Riddara está desarrollando su red de ventas en toda Bolivia, para ofrecer fácil acceso a nuestros vehículos innovadores.',
             'info' => 'Actualmente, 2 showrooms ya están operativos y abiertos para visitas, como se detalla a continuación:',
             'locations' => ['1. Santa Cruz', '2. El Alto'],
-            'additional_info' => 'Los concesionarios restantes están programados para abrir próximamente, ampliando aún más nuestra cobertura y mejorando la accesibilidad para los clientes de Geely en todo el país.',
+            'additional_info' => 'Los concesionarios restantes están programados para abrir próximamente, ampliando aún más nuestra cobertura y mejorando la accesibilidad para los clientes de Riddara en todo el país.',
             'image' => 'frontend/images/form2.png'
         ]
     ];
 
     // Lista de vehículos disponibles
     public $availableVehicles = [
-        'suv' => [
-            'starray' => 'Starray',
-            'gx3-pro' => 'GX3 Pro',
-            'citiray' => 'Citiray'
-        ],
         'electricos' => [
-            'electric-1' => 'Modelo Eléctrico 1',
-            'electric-2' => 'Modelo Eléctrico 2'
+            'rd6-electrica-bev-pro-4x4' => 'RD6 ELÉCTRICA BEV PRO 4X4',
+            'rd6-electrica-bev-econ-4x2' => 'RD6 ELÉCTRICA BEV ECON 4X2',
+            'rd6-electrica-bev-econ-4x4' => 'RD6 ELÉCTRICA BEV ECON 4X4'
         ],
-        'camionetas' => [
-            'pickup-1' => 'Pickup Model 1'
-        ]
+        'hibridos' => [
+            'rd6-hibrida-bev-phev-gl-4x4' => 'RD6 HÍBRIDA BEV PHEV GL 4X4',
+            'rd6-hibrida-bev-phev-gs-4x4' => 'RD6 HÍBRIDA BEV PHEV GS 4X4'
+        ],
     ];
 
     public function mount($category = null, $slug = null)

@@ -122,7 +122,7 @@
         <div class="mb-8">
             <img src="{{ asset($logo['image']) }}"
                  alt="{{ $logo['alt'] }}"
-                 class="h-20 w-auto mx-auto">
+                 class="h-5 w-auto mx-auto">
         </div>
 
         {{-- Frase descriptiva --}}

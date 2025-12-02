@@ -75,7 +75,7 @@
 
                         {{-- Imagen del interior --}}
                         <div class="order-2 lg:order-1">
-                            <img src="{{ asset('frontend/images/form1.png') }}"
+                            <img src="{{ asset('frontend/images/Riddara-Bolivia-Razon-1.jpg') }}"
                                  alt="Interior Geely"
                                  class="w-full rounded-2xl shadow-lg">
                         </div>
