@@ -51,35 +51,35 @@ class VehicleSubNavigation extends Component
     {
         $configs = [
             'rd6-electrica-bev-econ-4x2' => [
-                ['id' => 'rd6-electrica-bev-econ-4x2', 'label' => 'RD6 BEV ECON', 'anchor' => '#hero', 'active' => true],
+                ['id' => 'rd6-electrica-bev-econ-4x2', 'label' => 'RD6', 'anchor' => '#hero', 'active' => true],
                 ['id' => 'versiones', 'label' => 'Versiones', 'anchor' => '#versiones', 'active' => true],
                 ['id' => 'tecnologia', 'label' => 'Tecnología', 'anchor' => '#tecnologia', 'active' => true],
                 ['id' => 'diseno', 'label' => 'Diseño', 'anchor' => '#diseno', 'active' => true]
             ],
 
             'rd6-electrica-bev-econ-4x4' => [
-                ['id' => 'rd6-electrica-bev-econ-4x4', 'label' => 'RD6 BEV ECON', 'anchor' => '#hero', 'active' => true],
+                ['id' => 'rd6-electrica-bev-econ-4x4', 'label' => 'RD6', 'anchor' => '#hero', 'active' => true],
                 ['id' => 'versiones', 'label' => 'Versiones', 'anchor' => '#versiones', 'active' => true],
                 ['id' => 'tecnologia', 'label' => 'Tecnología', 'anchor' => '#tecnologia', 'active' => true],
                 ['id' => 'diseno', 'label' => 'Diseño', 'anchor' => '#diseno', 'active' => true]
             ],
 
             'rd6-hibrida-bev-phev-gl-4x4' => [
-                ['id' => 'rd6-hibrida-bev-phev-gl-4x4', 'label' => 'RD6 BEV PHEV', 'anchor' => '#hero', 'active' => true],
+                ['id' => 'rd6-hibrida-bev-phev-gl-4x4', 'label' => 'RD6', 'anchor' => '#hero', 'active' => true],
                 ['id' => 'versiones', 'label' => 'Versiones', 'anchor' => '#versiones', 'active' => true],
                 ['id' => 'tecnologia', 'label' => 'Tecnología', 'anchor' => '#tecnologia', 'active' => true],
                 ['id' => 'diseno', 'label' => 'Diseño', 'anchor' => '#diseno', 'active' => true]
             ],
 
             'rd6-hibrida-bev-phev-gs-4x4' => [
-                ['id' => 'rd6-hibrida-bev-phev-gs-4x4', 'label' => 'RD6 BEV PHEV', 'anchor' => '#hero', 'active' => true],
+                ['id' => 'rd6-hibrida-bev-phev-gs-4x4', 'label' => 'RD6', 'anchor' => '#hero', 'active' => true],
                 ['id' => 'versiones', 'label' => 'Versiones', 'anchor' => '#versiones', 'active' => true],
                 ['id' => 'tecnologia', 'label' => 'Tecnología', 'anchor' => '#tecnologia', 'active' => true],
                 ['id' => 'diseno', 'label' => 'Diseño', 'anchor' => '#diseno', 'active' => true]
             ],
 
             'rd6-electrica-bev-pro-4x4' => [
-                ['id' => 'rd6-electrica-bev-pro-4x4', 'label' => 'RD6 BEV PRO', 'anchor' => '#hero', 'active' => true],
+                ['id' => 'rd6-electrica-bev-pro-4x4', 'label' => 'RD6', 'anchor' => '#hero', 'active' => true],
                 ['id' => 'versiones', 'label' => 'Versiones', 'anchor' => '#versiones', 'active' => true],
                 ['id' => 'tecnologia', 'label' => 'Tecnología', 'anchor' => '#tecnologia', 'active' => true],
                 ['id' => 'diseno', 'label' => 'Diseño', 'anchor' => '#diseno', 'active' => true]

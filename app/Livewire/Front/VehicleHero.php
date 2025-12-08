@@ -114,7 +114,7 @@ class VehicleHero extends Component
                 'background_image' => 'frontend/images/vehicles/rd6/Riddara_Bolivia_RD6_Hero_Desktop.jpg',
                 'background_image_mobile' => 'frontend/images/vehicles/rd6/Riddara_Bolivia_RD6_Hero_Mobile.jpg',
                 'title_type' => 'text',
-                'title' => 'RIDDARA RD6 ECON 4X2',
+                'title' => 'RIDDARA RD6',
                 'subtitle' => 'Línea de camionetas eléctricas e híbridas',
                 'selected_specs' => [
                     'motor' => ['prefix' => '', 'value' => '', 'unit' => '', 'label' => ' '],
@@ -127,7 +127,7 @@ class VehicleHero extends Component
                 'background_image' => 'frontend/images/vehicles/rd6/Riddara_Bolivia_RD6_Hero_Desktop.jpg',
                 'background_image_mobile' => 'frontend/images/vehicles/rd6/Riddara_Bolivia_RD6_Hero_Mobile.jpg',
                 'title_type' => 'text',
-                'title' => 'RIDDARA RD6 ECON 4X4',
+                'title' => 'RIDDARA RD6',
                 'subtitle' => 'Línea de camionetas eléctricas e híbridas',
                 'selected_specs' => [
                     'motor' => ['prefix' => '', 'value' => '', 'unit' => '', 'label' => ' '],
@@ -140,7 +140,7 @@ class VehicleHero extends Component
                 'background_image' => 'frontend/images/vehicles/rd6/Riddara_Bolivia_RD6_Hero_Desktop.jpg',
                 'background_image_mobile' => 'frontend/images/vehicles/rd6/Riddara_Bolivia_RD6_Hero_Mobile.jpg',
                 'title_type' => 'text',
-                'title' => 'RIDDARA RD6 PHEV GL 4X4',
+                'title' => 'RIDDARA RD6',
                 'subtitle' => 'Línea de camionetas eléctricas e híbridas',
                 'selected_specs' => [
                     'motor' => ['prefix' => '', 'value' => '', 'unit' => '', 'label' => ' '],
@@ -153,7 +153,7 @@ class VehicleHero extends Component
                 'background_image' => 'frontend/images/vehicles/rd6/Riddara_Bolivia_RD6_Hero_Desktop.jpg',
                 'background_image_mobile' => 'frontend/images/vehicles/rd6/Riddara_Bolivia_RD6_Hero_Mobile.jpg',
                 'title_type' => 'text',
-                'title' => 'RIDDARA RD6 PHEV GS 4X4',
+                'title' => 'RIDDARA RD6',
                 'subtitle' => 'Línea de camionetas eléctricas e híbridas',
                 'selected_specs' => [
                     'motor' => ['prefix' => '', 'value' => '', 'unit' => '', 'label' => ' '],
