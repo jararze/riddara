@@ -179,6 +179,9 @@ class FormDetail extends Component
         // Procesar formulario según el tab activo
         $formSubmission = $this->processForm();
 
+        // Enviar a Facebook Conversions API
+        $this->sendToFacebookConversions($formSubmission);
+
         // Enviar a Tecnom CRM si es cotización o test drive
         if (in_array($this->activeTab, ['cotizacion', 'test-drive'])) {
             $this->sendToTecnomCRM($formSubmission);
@@ -224,6 +227,112 @@ class FormDetail extends Component
         Log::info('Formulario guardado en BD:', ['form_id' => $formSubmission->id, 'tipo' => $this->activeTab]);
 
         return $formSubmission;
+    }
+
+    /**
+     * Preparar datos para Facebook Conversions API
+     */
+    private function getApiDataFacebook(FormSubmission $formSubmission): array
+    {
+        // Separar nombre y apellido
+        $nombreCompleto = explode(' ', $formSubmission->nombre, 2);
+        $nombre = $nombreCompleto[0] ?? $formSubmission->nombre;
+        $apellido = $nombreCompleto[1] ?? '';
+
+        // Hashear datos según requiere Facebook
+        $hashed_email = hash('sha256', strtolower(trim($formSubmission->email)));
+        $hashed_phone = hash('sha256', $formSubmission->codigo_pais . $formSubmission->telefono);
+        $hashed_fn = hash('sha256', strtolower(trim($nombre)));
+        $hashed_ln = hash('sha256', strtolower(trim($apellido)));
+
+        return [
+            "event_name" => "Lead",
+            "event_time" => time(),
+            "user_data" => [
+                "client_user_agent" => request()->userAgent() ?? '',
+                "client_ip_address" => request()->ip() ?? '',
+                "fn" => $hashed_fn,
+                "ln" => $hashed_ln,
+                "ph" => $hashed_phone,
+                "em" => $hashed_email,
+            ],
+            "custom_data" => [
+                "lead_type" => $this->activeTab === 'test-drive' ? 'test-drive' : 'cotizacion',
+                "vehicle_model" => $formSubmission->vehiculo,
+                "city" => $formSubmission->ciudad
+            ],
+            "action_source" => "website"
+        ];
+    }
+
+    /**
+     * Enviar evento a Facebook Conversions API
+     */
+    private function sendToFacebookConversions(FormSubmission $formSubmission)
+    {
+
+        $facebookPixelId = '2403982470046515';
+        $facebookAccessToken = 'EAAWzNm7utHcBQPLhu7kZBDu04qfzAex2ZBG81lqMXreG3ArELdy0TTArT4aI9yRPF8fnZBtHDvKCGAgXZBsrN1g3J2T5T6G1fuYojXekUlEZAGVwWRvA0oqf0ZC1MCeLIXCZAXBvqkeEu6dNosGq48YWdhI6y7YVXJ0GkxSAEk7zIjgkdCZA1R6HSBGsj0SvsbPyUwZDZD';
+
+        try {
+            $eventData = $this->getApiDataFacebook($formSubmission);
+
+            $client = new Client();
+            $response = $client->post(
+                'https://graph.facebook.com/v20.0/' . $facebookPixelId . '/events',
+                [
+                    'headers' => [
+                        'Authorization' => 'Bearer ' . $facebookAccessToken,
+                    ],
+                    'json' => [
+                        'data' => [$eventData]
+                    ],
+                    'timeout' => 15
+                ]
+            );
+
+            $statusCode = $response->getStatusCode();
+            $responseData = json_decode($response->getBody()->getContents(), true);
+
+            if ($statusCode >= 200 && $statusCode < 300 && isset($responseData['fbtrace_id'])) {
+                $formSubmission->update([
+                    'fb_trace_id' => $responseData['fbtrace_id'],
+                    'fb_code_id' => $statusCode,
+                    'fb_message_id' => 'Lead enviado correctamente'
+                ]);
+
+                Log::info('Evento enviado a Facebook:', [
+                    'form_id' => $formSubmission->id,
+                    'fbtrace_id' => $responseData['fbtrace_id']
+                ]);
+            } else {
+                $formSubmission->update([
+                    'fb_code_id' => $statusCode,
+                    'fb_message_id' => 'Error en respuesta'
+                ]);
+            }
+
+        } catch (GuzzleException $e) {
+            $formSubmission->update([
+                'fb_code_id' => $e->getCode(),
+                'fb_message_id' => 'Exception: ' . $e->getMessage()
+            ]);
+
+            Log::error('Error al enviar a Facebook:', [
+                'form_id' => $formSubmission->id,
+                'error' => $e->getMessage()
+            ]);
+        } catch (\Exception $e) {
+            $formSubmission->update([
+                'fb_code_id' => 0,
+                'fb_message_id' => 'Unexpected Error: ' . $e->getMessage()
+            ]);
+
+            Log::error('Error inesperado al enviar a Facebook:', [
+                'form_id' => $formSubmission->id,
+                'error' => $e->getMessage()
+            ]);
+        }
     }
 
     /**
