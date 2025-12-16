@@ -616,8 +616,13 @@ class FormDetail extends Component
      */
     private function sendTecnomAPIRequest(array $apiData)
     {
-        $client = new Client();
+        $client = new Client([
+            'http_errors' => false  // Para capturar el body del error
+        ]);
         $credentials = $this->getTecnomAPICredentials();
+
+        // Log de lo que envías
+        Log::info('Enviando a Tecnom:', ['data' => $apiData]);
 
         $response = $client->post(config('app.api_url'), [
             'json' => $apiData,
@@ -628,6 +633,15 @@ class FormDetail extends Component
                 'Content-Type' => 'application/json',
             ]
         ]);
+
+        // Log de la respuesta completa
+        Log::info('Respuesta Tecnom:', [
+            'status' => $response->getStatusCode(),
+            'body' => $response->getBody()->getContents()
+        ]);
+
+        // Rebobinar el stream para poder leerlo después
+        $response->getBody()->rewind();
 
         return $response;
     }
