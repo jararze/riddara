@@ -587,7 +587,7 @@ class FormDetail extends Component
                 ],
                 'vehicles' => [
                     [
-                        'make' => 'Geely', // Cambiar de Nissan a Geely
+                        'make' => 'Riddara', // Cambiar de Nissan a Geely
                         'model' => $formSubmission->vehiculo,
                         'trim' => $formSubmission->vehiculo,
                         'year' => date('Y') // Año actual como fallback
@@ -595,7 +595,7 @@ class FormDetail extends Component
                 ],
                 'provider' => [
                     'name' => [
-                        'value' => 'Sitio web'
+                        'value' => 'Sitio web Riddara'
                     ],
                     'service' => ''
                 ],
