@@ -455,8 +455,7 @@ class FormDetail extends Component
                 ['email' => 'dvelasco@taiyomotors.com.bo', 'nombre' => 'Douglas Velasco']
             ],
             'cochabamba' => [
-                ['email' => 'pbeltran@taiyomotors.com.bo', 'nombre' => 'Pablo Beltrán'],
-                ['email' => 'dvelasco@taiyomotors.com.bo', 'nombre' => 'Douglas Velasco']
+                ['email' => 'cadriazola@taiyomotors.com.bo', 'nombre' => 'Caleb Adriazola']
             ],
             'sucre' => [
                 ['email' => 'pbeltran@taiyomotors.com.bo', 'nombre' => 'Pablo Beltrán'],
@@ -476,10 +475,11 @@ class FormDetail extends Component
                 ['email' => 'ibaptista@taiyomotors.com.bo', 'nombre' => 'Ivan Baptista']
             ],
             'la-paz' => [
-                ['email' => 'lcupari@taiyomotors.com.bo', 'nombre' => 'Luis Cupari']
+                ['email' => 'lcupari@taiyomotors.com.bo', 'nombre' => 'Luis Cupari'],
+                ['email' => 'pfernandez@taiyomotors.com.bo', 'nombre' => 'Pablo Fernández']
             ],
             'el-alto' => [
-                ['email' => 'lcupari@taiyomotors.com.bo', 'nombre' => 'Luis Cupari']
+                ['email' => 'arojas@taiyomotors.com.bo', 'nombre' => 'Alejandro Rojas']
             ],
             'potosi' => [
                 ['email' => 'lcupari@taiyomotors.com.bo', 'nombre' => 'Luis Cupari']

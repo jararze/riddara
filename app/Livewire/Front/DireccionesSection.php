@@ -29,6 +29,16 @@ class DireccionesSection extends Component
                 'map_link' => 'https://maps.app.goo.gl/YQfPVMbUyNH6RjrU8',
                 'icon' => 'location'
             ],
+
+            [
+                'name' => 'ORURO',
+                'address' => 'Av. 6 de Agosto #853',
+                'phone' => '',
+                'hours' => '',
+                'city' => 'Oruro - Bolivia',
+                'map_link' => 'https://maps.app.goo.gl/DBPsGLxpBea5TroT6',
+                'icon' => 'location'
+            ],
             [
                 'name' => 'LA PAZ',
                 'address' => 'Av. 6 de Marzo N° 1306 Frente Regimiento Ingavi ',
@@ -39,12 +49,12 @@ class DireccionesSection extends Component
                 'icon' => 'location'
             ],
             [
-                'name' => 'ORURO',
-                'address' => 'Av. 6 de Agosto #853',
+                'name' => 'LA PAZ',
+                'address' => 'Calacoto, Calle 15 esq. Roberto Prudencio #520',
                 'phone' => '',
                 'hours' => '',
-                'city' => 'Oruro - Bolivia',
-                'map_link' => 'https://maps.app.goo.gl/DBPsGLxpBea5TroT6',
+                'city' => 'La Paz - Bolivia',
+                'map_link' => 'https://maps.app.goo.gl/veuGtGn2iECCP9Ez8',
                 'icon' => 'location'
             ]
         ]
