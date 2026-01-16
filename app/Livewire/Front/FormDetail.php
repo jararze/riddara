@@ -447,9 +447,7 @@ class FormDetail extends Component
      */
     private function assignAgent($ciudad = null)
     {
-        // Agentes estáticos basados en ciudad
         $agentes = [
-            // Grupo 1: Santa Cruz, Cochabamba, Sucre, Tarija, Trinidad
             'santa-cruz' => [
                 ['email' => 'pbeltran@taiyomotors.com.bo', 'nombre' => 'Pablo Beltrán'],
                 ['email' => 'dvelasco@taiyomotors.com.bo', 'nombre' => 'Douglas Velasco']
@@ -469,8 +467,6 @@ class FormDetail extends Component
                 ['email' => 'pbeltran@taiyomotors.com.bo', 'nombre' => 'Pablo Beltrán'],
                 ['email' => 'dvelasco@taiyomotors.com.bo', 'nombre' => 'Douglas Velasco']
             ],
-
-            // Grupo 2: Oruro, La Paz, El Alto, Potosí
             'oruro' => [
                 ['email' => 'ibaptista@taiyomotors.com.bo', 'nombre' => 'Ivan Baptista']
             ],
@@ -489,27 +485,27 @@ class FormDetail extends Component
         try {
             if (!$ciudad || !isset($agentes[$ciudad])) {
                 Log::warning('Ciudad no válida para asignación de agente:', ['ciudad' => $ciudad]);
-                // Fallback: usar Pablo Beltrán por defecto
                 return (object) ['email' => 'pbeltran@taiyomotors.com.bo', 'nombre' => 'Pablo Beltrán'];
             }
 
             $agentesDisponibles = $agentes[$ciudad];
 
-            // Si solo hay un agente para la ciudad, asignarlo directamente
+            // Si solo hay un agente, asignarlo directamente
             if (count($agentesDisponibles) === 1) {
-                $agenteSeleccionado = $agentesDisponibles[0];
-                Log::info('Agente único asignado:', ['ciudad' => $ciudad, 'agente' => $agenteSeleccionado['email']]);
-                return (object) $agenteSeleccionado;
+                return (object) $agentesDisponibles[0];
             }
 
-            // Para ciudades con múltiples agentes, implementar rotación simple
-            // Usar el timestamp actual para alternar entre agentes
-            $indiceAgente = (int)(time() / 3600) % count($agentesDisponibles); // Cambia cada hora
+            // Contar leads existentes para esta ciudad
+            $totalLeadsCiudad = FormSubmission::where('ciudad', $ciudad)->count();
+
+            // Round-robin: el índice alterna según cantidad de leads
+            $indiceAgente = $totalLeadsCiudad % count($agentesDisponibles);
             $agenteSeleccionado = $agentesDisponibles[$indiceAgente];
 
-            Log::info('Agente rotativo asignado:', [
+            Log::info('Agente asignado por round-robin:', [
                 'ciudad' => $ciudad,
                 'agente' => $agenteSeleccionado['email'],
+                'lead_numero' => $totalLeadsCiudad + 1,
                 'indice' => $indiceAgente
             ]);
 
@@ -517,7 +513,6 @@ class FormDetail extends Component
 
         } catch (\Exception $e) {
             Log::error('Error al asignar agente:', ['error' => $e->getMessage(), 'ciudad' => $ciudad]);
-            // Fallback en caso de error
             return (object) ['email' => 'pbeltran@taiyomotors.com.bo', 'nombre' => 'Pablo Beltrán'];
         }
     }
