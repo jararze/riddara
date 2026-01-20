@@ -31,6 +31,36 @@ class DireccionesSection extends Component
             ],
 
             [
+                'name' => 'LA PAZ',
+                'address' => 'Calacoto, Calle 15 esq. Roberto Prudencio #520',
+                'phone' => '',
+                'hours' => '',
+                'city' => 'La Paz - Bolivia',
+                'map_link' => 'https://maps.app.goo.gl/veuGtGn2iECCP9Ez8',
+                'icon' => 'location'
+            ],
+
+            [
+                'name' => 'El Alto',
+                'address' => 'Av. 6 de Marzo N° 1306 Frente Regimiento Ingavi ',
+                'phone' => '',
+                'hours' => '',
+                'city' => 'El Alto - Bolivia',
+                'map_link' => 'https://maps.app.goo.gl/veuGtGn2iECCP9Ez8',
+                'icon' => 'location'
+            ],
+
+            [
+                'name' => 'Cochabamba',
+                'address' => 'Av. Pando N° 1191, Recoleta',
+                'phone' => '',
+                'hours' => '',
+                'city' => 'Cochabamba - Bolivia',
+                'map_link' => 'https://maps.app.goo.gl/veuGtGn2iECCP9Ez8',
+                'icon' => 'location'
+            ],
+
+            [
                 'name' => 'ORURO',
                 'address' => 'Av. 6 de Agosto #853',
                 'phone' => '',
@@ -39,24 +69,8 @@ class DireccionesSection extends Component
                 'map_link' => 'https://maps.app.goo.gl/DBPsGLxpBea5TroT6',
                 'icon' => 'location'
             ],
-            [
-                'name' => 'LA PAZ',
-                'address' => 'Av. 6 de Marzo N° 1306 Frente Regimiento Ingavi ',
-                'phone' => '',
-                'hours' => '',
-                'city' => 'El Alto - Bolivia',
-                'map_link' => 'https://maps.app.goo.gl/veuGtGn2iECCP9Ez8',
-                'icon' => 'location'
-            ],
-            [
-                'name' => 'LA PAZ',
-                'address' => 'Calacoto, Calle 15 esq. Roberto Prudencio #520',
-                'phone' => '',
-                'hours' => '',
-                'city' => 'La Paz - Bolivia',
-                'map_link' => 'https://maps.app.goo.gl/veuGtGn2iECCP9Ez8',
-                'icon' => 'location'
-            ]
+
+
         ]
     ];
 

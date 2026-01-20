@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Front\FormController;
 use App\Livewire\Front\CustomerRegistrationForm;
 use App\Livewire\Front\FormDetail;
 use App\Livewire\Front\Fortune;
@@ -17,6 +18,9 @@ Route::get('/fortuna', Fortune::class)->name('fortune');
 Route::get('/forms', FormDetail::class)->name('forms.base');
 Route::get('/forms/{category}', FormDetail::class)->name('forms.category');
 Route::get('/forms/{category}/{slug}', FormDetail::class)->name('forms.detail');
+
+Route::get('/forms/{category}/{slug}/enviado', [FormController::class, 'thanks'])
+    ->name('forms.thanks.vehicle');
 
 Route::get('/clientegeely', CustomerRegistrationForm::class)->name('purchased.vehicle.form');
 

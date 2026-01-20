@@ -15,6 +15,8 @@ class FormDetail extends Component
     public $activeTab = 'test-drive';
     public $selectedVehicle = null;
 
+    public $showThankYouModal = false;
+
     public $paisSeleccionado = 'bolivia';
 
     public $formData = [
@@ -169,31 +171,42 @@ class FormDetail extends Component
             'formData.ciudad' => 'required|string'
         ];
 
-        // Si no hay vehículo pre-seleccionado, requerirlo
         if (!$this->selectedVehicle) {
             $rules['formData.vehiculo'] = 'required|string';
         }
 
         $this->validate($rules);
 
-        // Procesar formulario según el tab activo
         $formSubmission = $this->processForm();
 
-        // Enviar a Facebook Conversions API
-        $this->sendToFacebookConversions($formSubmission);
-
-        // Enviar a Tecnom CRM si es cotización o test drive
         if (in_array($this->activeTab, ['cotizacion', 'test-drive'])) {
             $this->sendToTecnomCRM($formSubmission);
         }
 
-        session()->flash('message', 'Formulario enviado correctamente. Te contactaremos pronto.');
-        $this->reset(['formData']);
+        // Guardar datos en sesión para la página de agradecimiento
+        session()->flash('form_submission', [
+            'nombre' => $this->formData['nombre'],
+            'email' => $this->formData['email'],
+            'vehiculo' => $this->formData['vehiculo'],
+            'tipo' => $this->activeTab,
+            'id' => $formSubmission->id,
+        ]);
 
-        // Mantener vehículo seleccionado si viene por URL
-        if ($this->selectedVehicle) {
-            $this->formData['vehiculo'] = $this->selectedVehicle['name'];
+        // Redirigir a página de agradecimiento
+        if ($this->category && $this->slug) {
+            return redirect()->route('forms.thanks.vehicle', [
+                'category' => $this->category,
+                'slug' => $this->slug,
+            ]);
         }
+
+        return redirect()->route('forms.thanks');
+
+    }
+
+    public function closeThankYouModal()
+    {
+        $this->showThankYouModal = false;
     }
 
     private function processForm()
@@ -204,6 +217,7 @@ class FormDetail extends Component
             'email' => $this->formData['email'],
             'telefono' => $this->formData['telefono'],
             'codigo_pais' => $this->formData['codigo_pais'],
+            'ip_address' => request()->ip(), // ← Agregar esta línea
             'ciudad' => $this->formData['ciudad'],
             'vehiculo' => $this->formData['vehiculo'],
             'mensaje' => $this->formData['mensaje'] ?? null,
@@ -213,20 +227,38 @@ class FormDetail extends Component
             'datos_completos' => [
                 'formData' => $this->formData,
                 'selectedVehicle' => $this->selectedVehicle,
-                'timestamp' => now()
+                'timestamp' => now(),
+                'ip_address' => $this->getClientIp(), // También en datos_completos si querés
             ],
-            // Campos iniciales para CRM
             'status' => FormSubmission::STATUS_PENDING,
             'attempt_count' => 0
         ];
 
-        // Guardar en base de datos
         $formSubmission = FormSubmission::create($data);
 
-        // Log para debugging
-        Log::info('Formulario guardado en BD:', ['form_id' => $formSubmission->id, 'tipo' => $this->activeTab]);
+        Log::info('Formulario guardado en BD:', [
+            'form_id' => $formSubmission->id,
+            'tipo' => $this->activeTab,
+            'ip_address' => $this->getClientIp()
+        ]);
 
         return $formSubmission;
+    }
+
+    private function getClientIp(): string
+    {
+        // Cloudflare
+        if ($ip = request()->header('CF-Connecting-IP')) {
+            return $ip;
+        }
+
+        // Otros proxies (tomar primera IP si hay varias)
+        if ($forwarded = request()->header('X-Forwarded-For')) {
+            return explode(',', $forwarded)[0];
+        }
+
+        // Fallback
+        return request()->ip();
     }
 
     /**

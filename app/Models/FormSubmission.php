@@ -31,6 +31,7 @@ class FormSubmission extends Model
         'sent_to_crm_at',
         'last_attempt_at',
         'tecnom_response',
+        'ip_address',
     ];
 
     protected $casts = [
