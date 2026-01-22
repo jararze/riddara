@@ -15,8 +15,6 @@ class FormDetail extends Component
     public $activeTab = 'test-drive';
     public $selectedVehicle = null;
 
-    public $showThankYouModal = false;
-
     public $paisSeleccionado = 'bolivia';
 
     public $formData = [
@@ -201,50 +199,11 @@ class FormDetail extends Component
         }
 
         return redirect()->route('forms.thanks');
-
     }
 
-    public function closeThankYouModal()
-    {
-        $this->showThankYouModal = false;
-    }
-
-    private function processForm()
-    {
-        $data = [
-            'tipo_formulario' => $this->activeTab,
-            'nombre' => $this->formData['nombre'],
-            'email' => $this->formData['email'],
-            'telefono' => $this->formData['telefono'],
-            'codigo_pais' => $this->formData['codigo_pais'],
-            'ip_address' => request()->ip(), // ← Agregar esta línea
-            'ciudad' => $this->formData['ciudad'],
-            'vehiculo' => $this->formData['vehiculo'],
-            'mensaje' => $this->formData['mensaje'] ?? null,
-            'receive_offers' => $this->formData['receive_offers'],
-            'categoria_vehiculo' => $this->selectedVehicle['category'] ?? null,
-            'slug_vehiculo' => $this->selectedVehicle['slug'] ?? null,
-            'datos_completos' => [
-                'formData' => $this->formData,
-                'selectedVehicle' => $this->selectedVehicle,
-                'timestamp' => now(),
-                'ip_address' => $this->getClientIp(), // También en datos_completos si querés
-            ],
-            'status' => FormSubmission::STATUS_PENDING,
-            'attempt_count' => 0
-        ];
-
-        $formSubmission = FormSubmission::create($data);
-
-        Log::info('Formulario guardado en BD:', [
-            'form_id' => $formSubmission->id,
-            'tipo' => $this->activeTab,
-            'ip_address' => $this->getClientIp()
-        ]);
-
-        return $formSubmission;
-    }
-
+    /**
+     * Obtener IP real del cliente (compatible con Cloudflare)
+     */
     private function getClientIp(): string
     {
         // Cloudflare
@@ -261,110 +220,40 @@ class FormDetail extends Component
         return request()->ip();
     }
 
-    /**
-     * Preparar datos para Facebook Conversions API
-     */
-    private function getApiDataFacebook(FormSubmission $formSubmission): array
+    private function processForm()
     {
-        // Separar nombre y apellido
-        $nombreCompleto = explode(' ', $formSubmission->nombre, 2);
-        $nombre = $nombreCompleto[0] ?? $formSubmission->nombre;
-        $apellido = $nombreCompleto[1] ?? '';
-
-        // Hashear datos según requiere Facebook
-        $hashed_email = hash('sha256', strtolower(trim($formSubmission->email)));
-        $hashed_phone = hash('sha256', $formSubmission->codigo_pais . $formSubmission->telefono);
-        $hashed_fn = hash('sha256', strtolower(trim($nombre)));
-        $hashed_ln = hash('sha256', strtolower(trim($apellido)));
-
-        return [
-            "event_name" => "Lead",
-            "event_time" => time(),
-            "user_data" => [
-                "client_user_agent" => request()->userAgent() ?? '',
-                "client_ip_address" => request()->ip() ?? '',
-                "fn" => $hashed_fn,
-                "ln" => $hashed_ln,
-                "ph" => $hashed_phone,
-                "em" => $hashed_email,
+        $data = [
+            'tipo_formulario' => $this->activeTab,
+            'nombre' => $this->formData['nombre'],
+            'email' => $this->formData['email'],
+            'telefono' => $this->formData['telefono'],
+            'codigo_pais' => $this->formData['codigo_pais'],
+            'ip_address' => $this->getClientIp(),
+            'ciudad' => $this->formData['ciudad'],
+            'vehiculo' => $this->formData['vehiculo'],
+            'mensaje' => $this->formData['mensaje'] ?? null,
+            'receive_offers' => $this->formData['receive_offers'],
+            'categoria_vehiculo' => $this->selectedVehicle['category'] ?? null,
+            'slug_vehiculo' => $this->selectedVehicle['slug'] ?? null,
+            'datos_completos' => [
+                'formData' => $this->formData,
+                'selectedVehicle' => $this->selectedVehicle,
+                'timestamp' => now(),
+                'ip' => $this->getClientIp(),
             ],
-            "custom_data" => [
-                "lead_type" => $this->activeTab === 'test-drive' ? 'test-drive' : 'cotizacion',
-                "vehicle_model" => $formSubmission->vehiculo,
-                "city" => $formSubmission->ciudad
-            ],
-            "action_source" => "website"
+            'status' => FormSubmission::STATUS_PENDING,
+            'attempt_count' => 0
         ];
-    }
 
-    /**
-     * Enviar evento a Facebook Conversions API
-     */
-    private function sendToFacebookConversions(FormSubmission $formSubmission)
-    {
+        $formSubmission = FormSubmission::create($data);
 
-        $facebookPixelId = '2403982470046515';
-        $facebookAccessToken = 'EAAWzNm7utHcBQPLhu7kZBDu04qfzAex2ZBG81lqMXreG3ArELdy0TTArT4aI9yRPF8fnZBtHDvKCGAgXZBsrN1g3J2T5T6G1fuYojXekUlEZAGVwWRvA0oqf0ZC1MCeLIXCZAXBvqkeEu6dNosGq48YWdhI6y7YVXJ0GkxSAEk7zIjgkdCZA1R6HSBGsj0SvsbPyUwZDZD';
+        Log::info('Formulario guardado en BD:', [
+            'form_id' => $formSubmission->id,
+            'tipo' => $this->activeTab,
+            'ip' => $this->getClientIp()
+        ]);
 
-        try {
-            $eventData = $this->getApiDataFacebook($formSubmission);
-
-            $client = new Client();
-            $response = $client->post(
-                'https://graph.facebook.com/v20.0/' . $facebookPixelId . '/events',
-                [
-                    'headers' => [
-                        'Authorization' => 'Bearer ' . $facebookAccessToken,
-                    ],
-                    'json' => [
-                        'data' => [$eventData]
-                    ],
-                    'timeout' => 15
-                ]
-            );
-
-            $statusCode = $response->getStatusCode();
-            $responseData = json_decode($response->getBody()->getContents(), true);
-
-            if ($statusCode >= 200 && $statusCode < 300 && isset($responseData['fbtrace_id'])) {
-                $formSubmission->update([
-                    'fb_trace_id' => $responseData['fbtrace_id'],
-                    'fb_code_id' => $statusCode,
-                    'fb_message_id' => 'Lead enviado correctamente'
-                ]);
-
-                Log::info('Evento enviado a Facebook:', [
-                    'form_id' => $formSubmission->id,
-                    'fbtrace_id' => $responseData['fbtrace_id']
-                ]);
-            } else {
-                $formSubmission->update([
-                    'fb_code_id' => $statusCode,
-                    'fb_message_id' => 'Error en respuesta'
-                ]);
-            }
-
-        } catch (GuzzleException $e) {
-            $formSubmission->update([
-                'fb_code_id' => $e->getCode(),
-                'fb_message_id' => 'Exception: ' . $e->getMessage()
-            ]);
-
-            Log::error('Error al enviar a Facebook:', [
-                'form_id' => $formSubmission->id,
-                'error' => $e->getMessage()
-            ]);
-        } catch (\Exception $e) {
-            $formSubmission->update([
-                'fb_code_id' => 0,
-                'fb_message_id' => 'Unexpected Error: ' . $e->getMessage()
-            ]);
-
-            Log::error('Error inesperado al enviar a Facebook:', [
-                'form_id' => $formSubmission->id,
-                'error' => $e->getMessage()
-            ]);
-        }
+        return $formSubmission;
     }
 
     /**
@@ -372,24 +261,17 @@ class FormDetail extends Component
      */
     private function sendToTecnomCRM(FormSubmission $formSubmission)
     {
-        // Incrementar contador de intentos
         $formSubmission->increment('attempt_count');
         $formSubmission->update(['last_attempt_at' => now()]);
 
         try {
-            // Asignar agente basado en la ciudad
             $agent = $this->assignAgent($formSubmission->ciudad);
-
-            // Preparar datos para API
             $apiData = $this->prepareApiDataForTecnom($formSubmission, $agent);
-
-            // Enviar a API
             $response = $this->sendTecnomAPIRequest($apiData);
             $statusCode = $response->getStatusCode();
             $responseBody = $response->getBody()->getContents();
 
             if ($statusCode == 200) {
-                // Caso de éxito
                 $result = json_decode($responseBody, true);
                 $formSubmission->update([
                     'tecnom_id' => $result['id'] ?? null,
@@ -397,7 +279,7 @@ class FormDetail extends Component
                     'sent_to_crm_at' => now(),
                     'agent_assigned' => $agent ? $agent->email : null,
                     'tecnom_response' => $result,
-                    'error_tecnom' => null // Limpiar errores previos
+                    'error_tecnom' => null
                 ]);
 
                 Log::info('Enviado exitosamente a Tecnom CRM:', [
@@ -409,7 +291,6 @@ class FormDetail extends Component
                 ]);
 
             } elseif ($statusCode == 400) {
-                // Error esperado (bad request)
                 $formSubmission->update([
                     'error_tecnom' => 'Error 400 - Bad Request: ' . $responseBody,
                     'status' => FormSubmission::STATUS_ERROR,
@@ -423,7 +304,6 @@ class FormDetail extends Component
                 ]);
 
             } else {
-                // Error inesperado
                 $formSubmission->update([
                     'error_tecnom' => "Error {$statusCode}: {$responseBody}",
                     'status' => FormSubmission::STATUS_ERROR,
@@ -475,7 +355,7 @@ class FormDetail extends Component
     }
 
     /**
-     * Asignar agente basado en la ciudad seleccionada
+     * Asignar agente basado en la ciudad seleccionada (Round-Robin)
      */
     private function assignAgent($ciudad = null)
     {
@@ -522,15 +402,12 @@ class FormDetail extends Component
 
             $agentesDisponibles = $agentes[$ciudad];
 
-            // Si solo hay un agente, asignarlo directamente
             if (count($agentesDisponibles) === 1) {
                 return (object) $agentesDisponibles[0];
             }
 
-            // Contar leads existentes para esta ciudad
+            // Round-robin basado en cantidad total de leads para esta ciudad
             $totalLeadsCiudad = FormSubmission::where('ciudad', $ciudad)->count();
-
-            // Round-robin: el índice alterna según cantidad de leads
             $indiceAgente = $totalLeadsCiudad % count($agentesDisponibles);
             $agenteSeleccionado = $agentesDisponibles[$indiceAgente];
 
@@ -550,19 +427,17 @@ class FormDetail extends Component
     }
 
     /**
-     * Preparar datos para la API de Tecnom usando la estructura exacta del código original
+     * Preparar datos para la API de Tecnom
      */
     private function prepareApiDataForTecnom(FormSubmission $formSubmission, $agent = null)
     {
         $testDrive = $this->activeTab === 'test-drive' ? 'Si' : 'No';
         $tipoContacto = $this->activeTab === 'test-drive' ? 'test-drive' : 'cotizacion';
 
-        // Separar nombre y apellido
         $nombreCompleto = explode(' ', $formSubmission->nombre, 2);
         $nombre = $nombreCompleto[0] ?? $formSubmission->nombre;
         $apellido = $nombreCompleto[1] ?? '';
 
-        // Comentarios en el mismo formato que el código original
         $comentarios = "Cotizacion de pagina web, el id es el: {$formSubmission->id}.\n";
         $comentarios .= "Datos:\n";
         $comentarios .= "Ciudad: {$formSubmission->ciudad}\n";
@@ -575,27 +450,17 @@ class FormDetail extends Component
             $comentarios .= "\nMensaje adicional: {$formSubmission->mensaje}";
         }
 
-        $apiData = [
+        return [
             'prospect' => [
                 'requestdate' => date('c'),
                 'customer' => [
                     'comments' => $comentarios,
                     'contacts' => [
                         [
-                            'emails' => [
-                                [
-                                    'value' => $formSubmission->email
-                                ]
-                            ],
+                            'emails' => [['value' => $formSubmission->email]],
                             'names' => [
-                                [
-                                    'part' => 'first',
-                                    'value' => $nombre
-                                ],
-                                [
-                                    'part' => 'last',
-                                    'value' => $apellido
-                                ]
+                                ['part' => 'first', 'value' => $nombre],
+                                ['part' => 'last', 'value' => $apellido]
                             ],
                             'phones' => [
                                 [
@@ -604,38 +469,29 @@ class FormDetail extends Component
                                 ]
                             ],
                             'addresses' => [
-                                [
-                                    'city' => $formSubmission->ciudad,
-                                    'postalcode' => '591'
-                                ]
+                                ['city' => $formSubmission->ciudad, 'postalcode' => '591']
                             ],
                         ],
                     ]
                 ],
                 'vehicles' => [
                     [
-                        'make' => 'Riddara', // Cambiar de Nissan a Geely
+                        'make' => 'Riddara',
                         'model' => $formSubmission->vehiculo,
                         'trim' => $formSubmission->vehiculo,
-                        'year' => date('Y') // Año actual como fallback
+                        'year' => date('Y')
                     ]
                 ],
                 'provider' => [
-                    'name' => [
-                        'value' => 'Sitio web Riddara'
-                    ],
+                    'name' => ['value' => 'Sitio web Riddara'],
                     'service' => ''
                 ],
                 'vendor' => [
                     'contacts' => [],
-                    'vendorname' => [
-                        'value' => $agent ? $agent->email : 'web@geely.com.bo'
-                    ]
+                    'vendorname' => ['value' => $agent ? $agent->email : 'web@riddara.com.bo']
                 ]
             ]
         ];
-
-        return $apiData;
     }
 
     /**
@@ -643,12 +499,9 @@ class FormDetail extends Component
      */
     private function sendTecnomAPIRequest(array $apiData)
     {
-        $client = new Client([
-            'http_errors' => false  // Para capturar el body del error
-        ]);
+        $client = new Client(['http_errors' => false]);
         $credentials = $this->getTecnomAPICredentials();
 
-        // Log de lo que envías
         Log::info('Enviando a Tecnom:', ['data' => $apiData]);
 
         $response = $client->post(config('app.api_url'), [
@@ -661,13 +514,11 @@ class FormDetail extends Component
             ]
         ]);
 
-        // Log de la respuesta completa
         Log::info('Respuesta Tecnom:', [
             'status' => $response->getStatusCode(),
             'body' => $response->getBody()->getContents()
         ]);
 
-        // Rebobinar el stream para poder leerlo después
         $response->getBody()->rewind();
 
         return $response;

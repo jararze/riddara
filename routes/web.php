@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\Front\FormController;
 use App\Livewire\Front\CustomerRegistrationForm;
 use App\Livewire\Front\FormDetail;
+use App\Livewire\Front\Forms\Thanks;
 use App\Livewire\Front\Fortune;
 use App\Livewire\Front\VehicleDetail;
 use Illuminate\Support\Facades\Route;
@@ -19,8 +19,11 @@ Route::get('/forms', FormDetail::class)->name('forms.base');
 Route::get('/forms/{category}', FormDetail::class)->name('forms.category');
 Route::get('/forms/{category}/{slug}', FormDetail::class)->name('forms.detail');
 
-Route::get('/forms/{category}/{slug}/enviado', [FormController::class, 'thanks'])
-    ->name('forms.thanks.vehicle');
+// Páginas de agradecimiento (Livewire)
+Route::get('/gracias', Thanks::class)->name('forms.thanks');
+Route::get('/forms/{category}/{slug}/enviado', Thanks::class)->name('forms.thanks.vehicle');
+
+
 
 Route::get('/clientegeely', CustomerRegistrationForm::class)->name('purchased.vehicle.form');
 

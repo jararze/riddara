@@ -145,21 +145,33 @@ class CustomerRegistrationForm extends Component
         }
     }
 
+    /**
+     * Obtener IP real del cliente (compatible con Cloudflare)
+     */
+    private function getClientIp(): string
+    {
+        if ($ip = request()->header('CF-Connecting-IP')) {
+            return $ip;
+        }
+
+        if ($forwarded = request()->header('X-Forwarded-For')) {
+            return explode(',', $forwarded)[0];
+        }
+
+        return request()->ip();
+    }
+
     public function submitForm()
     {
-        // Log para debug
         Log::info('Iniciando envío de formulario', ['formData' => $this->formData]);
 
         try {
-            // Validar
             $this->validate();
 
-            // Determinar si quiere promociones
             $wantsPromotions = $this->formData['promo_whatsapp'] ||
                 $this->formData['promo_email'] ||
                 $this->formData['promo_sms'];
 
-            // Crear registro
             $submission = PurchasedVehicleForm::create([
                 'first_name' => $this->formData['first_name'],
                 'last_name' => $this->formData['last_name'],
@@ -170,6 +182,7 @@ class CustomerRegistrationForm extends Component
                 'birth_date' => $this->formData['birth_date'],
                 'mobile_phone' => $this->formData['mobile_phone'],
                 'email' => $this->formData['email'],
+                'ip_address' => $this->getClientIp(),
                 'wants_promotions' => $wantsPromotions,
                 'promo_whatsapp' => $this->formData['promo_whatsapp'],
                 'promo_email' => $this->formData['promo_email'],
@@ -193,17 +206,25 @@ class CustomerRegistrationForm extends Component
             Log::info('Formulario de vehículo comprado enviado exitosamente:', [
                 'submission_id' => $submission->id,
                 'email' => $submission->email,
-                'vehicle' => $submission->purchased_vehicle
+                'vehicle' => $submission->purchased_vehicle,
+                'ip' => $this->getClientIp()
+            ]);
+
+            // Guardar datos en sesión para la página de agradecimiento
+            session()->flash('form_submission', [
+                'nombre' => $this->formData['first_name'] . ' ' . $this->formData['last_name'],
+                'email' => $this->formData['email'],
+                'vehiculo' => $this->vehicles[$this->formData['purchased_vehicle']] ?? $this->formData['purchased_vehicle'],
+                'tipo' => 'registro-cliente',
+                'id' => $submission->id,
             ]);
 
             // Limpiar formulario
             $this->reset('formData');
             $this->formData['nationality'] = 'Boliviana';
 
-            session()->flash('success', '¡Gracias por completar el formulario! Sus datos han sido registrados exitosamente.');
-
-            // ELIMINA O COMENTA ESTA LÍNEA:
-            // return redirect()->route('customer.registration');
+            // Redirigir a página de agradecimiento
+            return redirect()->route('forms.thanks');
 
         } catch (\Illuminate\Validation\ValidationException $e) {
             Log::warning('Error de validación en formulario:', [

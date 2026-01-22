@@ -20,6 +20,7 @@ class PurchasedVehicleForm extends Model
         'no_promotions' => 'boolean',
         'has_children' => 'boolean',
         'hobbies' => 'array',
+        'ip_address',
     ];
 
     public function getFullNameAttribute()
