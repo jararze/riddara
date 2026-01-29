@@ -216,6 +216,7 @@ class CustomerRegistrationForm extends Component
                 'email' => $this->formData['email'],
                 'vehiculo' => $this->vehicles[$this->formData['purchased_vehicle']] ?? $this->formData['purchased_vehicle'],
                 'tipo' => 'registro-cliente',
+                'marca' => 'Riddara',
                 'id' => $submission->id,
             ]);
 
@@ -224,7 +225,7 @@ class CustomerRegistrationForm extends Component
             $this->formData['nationality'] = 'Boliviana';
 
             // Redirigir a página de agradecimiento
-            return redirect()->route('forms.thanks');
+            return redirect()->route('purchased.vehicle.thanks');
 
         } catch (\Illuminate\Validation\ValidationException $e) {
             Log::warning('Error de validación en formulario:', [

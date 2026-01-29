@@ -26,6 +26,7 @@ Route::get('/forms/{category}/{slug}/enviado', Thanks::class)->name('forms.thank
 
 
 Route::get('/clientegeely', CustomerRegistrationForm::class)->name('purchased.vehicle.form');
+Route::get('/clientegeely/gracias', Thanks::class)->name('purchased.vehicle.thanks');
 
 
 Route::middleware(['auth'])->group(function () {
