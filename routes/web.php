@@ -52,7 +52,7 @@ Route::get('/export/excel-data', function() {
     }
 
     return response($output, 200, [
-        'Content-Type' => 'text/tab-separated-values; charset=utf-8',
+        'Content-Type' => 'text/plain; charset=utf-8',
     ]);
 });
 
@@ -107,7 +107,7 @@ Route::get('/export/purchased-data', function() {
     }
 
     return response($output, 200, [
-        'Content-Type' => 'text/tab-separated-values; charset=utf-8',
+        'Content-Type' => 'text/plain; charset=utf-8',
     ]);
 });
 
